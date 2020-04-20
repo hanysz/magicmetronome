@@ -1,0 +1,6 @@
+# You can change tempo in the middle of a script.
+# Remember that a number on its own gives a tempo in beats per minute.
+# Decimals are allowed: if you think 45 is too slow and 46 is too fast,
+# then you're welcome to try 45.5!
+
+60 caaacaaa 140 caaacaaa 45.5 caaacaaa

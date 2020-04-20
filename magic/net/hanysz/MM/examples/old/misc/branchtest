@@ -1,0 +1,11 @@
+# test starting from markers:
+# when starting at marker 2, main branch doesn't sound
+# but starting at time 5000 works OK
+{aaaaaaaaaaM"1"
+#1000(a)
+V20b
+}
+{{bbbbbM"2"}cccM"3",,cc}
+{a}
+,,,,M"4"d;ddd
+#1000 (V15d)

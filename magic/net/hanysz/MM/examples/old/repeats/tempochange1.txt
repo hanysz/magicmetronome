@@ -1,0 +1,6 @@
+# What happens if you change tempo inside a repeated block?
+# See if you can guess what this example does before you play it.
+
+120 R2(baa 80 baa)
+c
+R2(120 baa 80 baa)

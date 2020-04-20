@@ -1,0 +1,54 @@
+# checkpoints for Ligeti, "Fanfares"
+
+# count in
+aaaa
+{c}
+R27(,)
+
+# bar 28
+M"a"
+{c}
+R18(,)
+
+# bar 46
+M"b"
+{c}
+R28(,)
+
+# bar 74
+M"c"
+{c}
+R22(,)
+
+# bar 96
+M"d"
+{c}
+R20(,)
+
+# bar 116
+M"e"
+{c}
+R21(,)
+
+# bar 137
+M"f"
+{c}
+R18(,)
+
+# bar 155
+M"f1"
+{c}
+R11(,)
+
+# bar 166
+M"g"
+{c}
+R21(,)
+
+# bar 187
+M"h"
+{c}
+R26(,)
+
+#end of last note (but two bars of silence to go!)
+d

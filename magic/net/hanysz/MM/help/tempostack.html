@@ -1,0 +1,44 @@
+<table align="center" width="100%">
+<td align="left"><a href="volume.html">Previous: Changing the volume</a></td>
+<td align="center"><a href="contents.html">Contents</a></td>
+<td align="right"><a href="macros.html">Next: Macros</a></td>
+</table>
+<hr>
+<br>
+<h2>The tempo stack</h2>
+Each track comes with a "tempo stack"
+which can be used to store the current tempo
+and recall it later.
+Use "[" to store a tempo and "]" to recall it.
+<p>
+As a simple illustration, the tempo stack is a convenient way
+to make triplets:
+<p>
+<code>a a [T3 aaa] a a</code>
+<p>
+In this example, the "[" will remember what the current tempo is,
+then "T3" goes to triple tempo, "aaa" plays a triplet,
+and "]" restores the original tempo.
+<p>
+It's called a "stack" because you can store lots of things on top of each other.
+For example:
+<p>
+<code>60 a a [ 90 a a [ 200 a a ] b b ] c c</code>
+<p>
+The first "]" returns to a tempo of 90 beats per minute,
+then the second returns to 60.
+<p>
+This can be useful for playing nested polyrhythms.
+For example, here is a six beat bar
+where the fourth beat is replaced by a septuplet
+and then the third through fifth ticks of the septuplet
+are replaced by two in the time of three:
+<p>
+<code>60 aaa [T7 aa [T2/3 aaaaa]aa] aa</code>
+<p>
+(By the way, unlike the "()" and "{}" symbols,
+"[" and "]" do not need to balance.
+It's OK to store a tempo without recalling it later.
+And if you use too many "]"s, the extra ones will simply
+be ignored.)
+

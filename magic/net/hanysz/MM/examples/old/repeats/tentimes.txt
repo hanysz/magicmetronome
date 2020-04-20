@@ -1,0 +1,9 @@
+# You can repeat as many times as you want.
+
+aaa R10(baa)
+
+# (If you want to be pedantic, you might say that the pattern
+# is played once then repeated nine more times,
+# so this counts as nine repeats not ten.
+# The number after the letter 'R' is the total number of times
+# the pattern is played, call it what you like.)

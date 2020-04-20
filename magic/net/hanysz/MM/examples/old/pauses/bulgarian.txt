@@ -1,0 +1,25 @@
+# Here are the metres of Bartok's "Six dances in Bulgarian rhythm" from Mikrokosmos.
+# (Just four bars of each pattern, with a two second break in between.)
+
+# Dance no. 1: (4+2+3)/8 time
+350 R4(b;,a,a;)
+60;
+
+# Dance no. 2:  (2+2+3)/8
+420 R4(b,a,a;)
+60;
+
+# Dance no. 3: 5/8
+400 R4(b,a;)
+60;
+
+# Dance no. 4: (3+2+3)/8
+400 R4(b;a,a;)
+60;
+
+# Dance no. 5: (2+2+2+3)/8
+360 R4(b,a,a,a;)
+60;
+
+# Dance no. 6: (3+3+2)/8
+448 R4(b;a;a,)

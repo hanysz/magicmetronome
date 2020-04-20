@@ -1,0 +1,5 @@
+# If you want something to end up, say, 70% faster,
+# then you don't need to do the arithmetic yourself,
+# you can just use a relative tempo with the letter "T":
+
+100 aaaa A(c R20(a) T1.7)

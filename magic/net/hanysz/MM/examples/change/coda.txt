@@ -1,0 +1,6 @@
+# Magic Metronome example script: Fast coda
+#
+# Here are four bars of 4/4 time at moderate tempo, then two bars 40% faster.
+# The letter "T" introduces a relative tempo change: see the help pages for more details.
+
+80 R4(baaa) T1.4 R2(baaa)

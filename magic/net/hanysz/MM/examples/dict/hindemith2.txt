@@ -1,0 +1,10 @@
+# Magic Metronome example script: This is Dictation 10(1)(a)
+# from Hindemith's book "Elementary training for musicians".
+# This example involves two tracks playing simultaneously.
+# The bell keeps a steady beat in 2/4 time, while the tick plays a more complicated rhythm.
+# Braces "{" and "}" are used to denote each track.
+# Read the help pages to learn more about using multiple tracks.
+
+60
+{R8 (b)}
+{T4 a,,,aaa, a,,,,,a, aaaaa,a, a,a,,,,,}

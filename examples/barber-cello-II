@@ -1,0 +1,21 @@
+# Samuel Barber cello sonata, second movement
+160 # dotted crotchet = 160
+#120 # practice tempo
+\4="baaa"
+\3="[T3/4 baa]"
+\comma="[T3,]"
+
+# one bar count in
+\4
+
+#bar 10
+\4\3
+R4(\4)
+\3\4
+
+#bar 18
+\4\3
+R15(\4)
+
+# cut: omit bar 35, start at bar 39
+\4\4\comma\4\3

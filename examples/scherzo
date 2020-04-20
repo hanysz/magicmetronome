@@ -1,0 +1,101 @@
+# Mendelssohn/Rachmaninoff scherzo
+# with some commas inserted to try and keep it sane!
+
+\comma="[T6,]" # push tempo, wait 1/6 of a bar, pop
+\pause="[T3,]"
+
+# I'm using 28 commas and 8 pauses --
+# that's 44 extra semiquavers, or 7 bars of extra time
+# so at a tempo of 84, it should take 4:40 exactly
+
+# count in
+aaaa
+
+# start
+R8(a) \comma
+R8(a) \comma
+R8(a) \comma # after 1st beat of bar 24
+R12(a)
+M"a" # actually 4 bars before the rehearsal letter!
+#bar 37
+aaaa
+
+#{c} # should happen at "A", for testing purposes: delete later
+a \comma # bar 41
+R7(a) \comma # bar 48
+R6(a) \comma # bar 54
+R6(a) \comma # bar 60
+R6(a)
+M"b"
+aa \comma # bar 68
+aa \pause # bar 70
+
+#{c}
+R24(a)
+M"c"
+R4(a) \comma # bar 98
+
+#{c}
+R8(a) \comma # bar 106
+R9(a) \pause # bar 115
+R11(a) \comma # bar 126
+aaa \pause
+aaa
+M"c1"
+aaaa
+
+#{c}
+a\comma # bar 137
+R11(a) \comma # bar 148
+aaa \pause
+aaa
+M"d"
+aaaa
+
+#{c}
+a\comma
+R11(a) \comma # bar 170
+R13(a)
+M"e"
+aaaa \pause # bar 187
+
+#{c}
+R22(a) \comma # bar 209
+R6(a)
+M"f"
+aaaa
+
+#{c}
+R10(a) \comma # bar 229
+R8(a) \comma # bar 237
+R16(a)
+M"g"
+aaaa
+
+#{c}
+R8(a) \comma # bar 265
+R8(a) \comma # bar 273
+R8(a) \comma # bar 281
+R7(a) \comma # bar 288
+aaaa
+M"h"
+aaaa\pause # bar 296
+
+#{c}
+R20(a) \comma # bar 316
+R8(a) \comma # bar 324
+R7(a) \pause # bar 331
+aaaa
+M"i"
+aaaa \pause # bar 339
+
+#{c}
+R5(a) \comma # bar 344
+R8(a) \comma # bar 352
+R6(a) M"j"
+a \comma # bar 359
+aaa
+
+#{c}
+R19(a) \comma # bar 381
+aaaa

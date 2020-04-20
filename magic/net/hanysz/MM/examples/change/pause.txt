@@ -1,0 +1,8 @@
+# Magic Metronome example script: Long pause
+#
+# This example has a four bar introduction with a ritardando then a three beat pause.
+# The letter "S" stands for silence.  You can make the pause as long or short as you want
+# by changing the number 3 to a different whole number.
+
+A(120 R4(baa) 80) S3
+120 (baa)

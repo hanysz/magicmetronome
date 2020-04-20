@@ -1,0 +1,32 @@
+# Magic Metronome example script: Rite of Spring (excerpt)
+#
+# This is the rhythm of the first part of the Dance Sacrale
+# from Stravinksy's "The Rite of Spring"
+# (figures 142 through 149 in the orchestral score).
+#
+# In this example we use macros as abbreviations for the repeated patterns.
+# See the help pages for more information about macros.
+
+126*2  # The tempo is 126 quavers per minute, but we'll count in semiquavers
+# Define some macros:
+\216="ca"              # This is the abbreviation for a 2/16 bar
+\316="ca,"
+\316rest=",c,"              # Some 3/16 bars start with a rest
+\28="[T1/2 caaa]"
+\516a="c,aV60ca"             # There are three different patterns in 5/16 bars
+\516b="V150cccca"
+\516c="c,c,a"
+\38="cacaaa"
+\316a="caa"            # A new pattern appears at figure 148
+
+# The beginning of the dance is here:
+acS4
+\216\316\316rest\28
+\216 R2(\316rest) \28\316     # figure 143 is the start of this line
+\316\516a\28\316\28           # fig 144
+\516b\516c\28\316\28\316rest  # fig 145
+\216\316\28\38                # fig 146
+\316\216\316\28\216           # fig 147
+\316a\316a\28                 #fig149
+c,
+

@@ -1,0 +1,9 @@
+# Magic Metronome example script: Comma at phrase end
+#
+# This example is in 4/4 time with a comma (half a beat rest) at the end of every fourth bar.
+# You can change the length of the comma by changing the number 2 after the "T" to a different number.
+# Larger numbers will give shorter commas.  Decimals are allowed!
+# To learn exactly what the square brackets "[" and "]" do,
+# read the help page for "The tempo stack".
+
+90 (R4(baaa) [T2 ,])

@@ -1,0 +1,39 @@
+# Variation 1
+
+96 T2 # count quavers
+\m="b,,," # minim, top voice
+\c="b," # crotchet, top voice
+{\m\c \m\c \m\c \m\c \m\m\m \m\c ,,,,\c
+ \m\c \m\c \m\c \m\m\c\c \m\m\c\m\m}
+
+\3="[T3/2 aaa]" # triplet
+\t3="[T3/2 ,aa]" # triplet with the first note tied over
+\5q="[T5/4 aaaaa]" # quintuplet quavers
+\t5q="[T5/4 ,aaaa]" # quintuplet quavers with the first note tied over
+\6q="aaaaaa" # a bar of quavers
+{\6q    \6q    aa\5q    \t3\5q
+ \6q    \6q    ,a \5q   \t5q ,a
+ \6q    \6q    ,a \5q   aa\5q
+ \5q    aa     \5q aa   \5q aa \3 ,a,a
+}
+
+M"var2"
+\5s="[T10/4 aaaaa]" # quintuplet semiquavers 
+\t5s="[T10/4 ,aaaa]" # quintuplet semiquavers , the first one tied over
+\3s="[T6/2 aaa]" # triplet semiquavers
+\76q="[T14/6 R7(a)]a" # 7:6 semiquavers followed by one quaver
+\t76q="[T14/6 ,R6(a)]a" # 7:6 semiquavers (the first one tied over) followed by one quaver
+\r2s="[T2 ,,aa]" # a quaver rest followed by two semiquavers
+\r3s="[T2 ,aaa]" # a semiquaver rest followed by three semiquavers
+
+T112/96
+{ccc,,c       ccc,,c        ccc,,c       ccc,,c
+ccc,,c       ccc,,c        ccc,,c       ccc,,c
+ccc,,c       ccc,,c        cccc,c       ccc,,c
+cccc,c       cccc,c        cc,c,c       cc,c,c
+}
+a,\5s,a       a,\t5s,a      a,\t76q      ,a,,a,
+a,\t5s,a      a,\t5s,a      a,\76q       ,a,,a,
+\r2s \5s ,a   \r2s \5s ,a   \r3s \5s ,a  \r3s \5s aa
+a\3s \5s aa   a\3s \5s aa   a,,aa,       ,a,a,a
+

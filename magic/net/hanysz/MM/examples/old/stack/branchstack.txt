@@ -1,0 +1,4 @@
+# If you use multiple tracks, then each track keeps its own independent tempo stack.
+
+{90 aaa [ 140 aaaaaaaaaaaaa ] aaa} # track 1 stores the number 90 and recalls it later
+{60 bbb [ 120 bbb ] bbb }  # track 2 gets to its "]" before track 1 does, but it still recalls 60 not 90

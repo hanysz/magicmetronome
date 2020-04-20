@@ -1,0 +1,7 @@
+# Magic Metronome example script: Slow down at phrase end
+#
+# Here is a repeating four bar pattern with a slowing down in every fourth bar.
+# (That's three bars at constant speed, then one bar at changing speed.)
+# You can change the amount of slowing down by changing 70 to a different number.
+
+( 100 R3(baaa) A(100 baaa 70) )

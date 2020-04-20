@@ -1,0 +1,163 @@
+v 0.01: 2006, December 23rd: one source file only;
+	takes two command-line arguments (filename and tempo) and ticks.
+	Weird bug: at tempo 120, get an extra part of a tick (but not at other tempi)
+
+v 0.02: 2006, December 24th: two source files: Ticker and TickGUI
+	very primitive GUI; in particular, it ignores all settings and just ticks at 120.
+
+v 0.03: 2006, December 24th: three source files: add TickLooper
+	now obeys settings: launches TickLooper as separate thread
+	another bug: "overflow": runs on after stop button is pressed.
+	no change in appearance of GUI
+
+v 0.04:	2006, December 27th: four source files (also TickLooper, TickGUI,
+				Ticker-- shouldn't be needed any more).
+	implemented new buffering system:
+	now possible to change settings while playing; overflow fixed
+	classes: SoundCollection handles data, TickGenerator does synthesis,
+	TickLooper is the thread that makes the sound, and MMgui is the GUI.
+	seems tolerant of different buffer sizes (from 2 to 50000000);
+	bug:
+	    Error in class Soundcollection: addSoundToBuffer: too many
+	    bytes--trying to read past end of sound.
+	sometimes happens when changing sounds at extremely fast tempi (>1000bpm).
+
+v 0.05: 2006, December 28th: same four source files, plus testing classes
+		BufferTest, ByteIntConvert, EndianTest,
+		plus Ticker: now obsolete
+	added volume control, plus code to convert between samples and bytes;
+	no known bugs at this stage;
+	GUI is very ugly!
+
+v 0.06: 2006, December 28th
+	converted to "double metronome" with two channels;
+	GUI slightly improved.
+
+v 0.07: 2006, December 29th: new class SoundBuffer
+	no change to functionality or GUI;
+	reworked code to use SoundBuffer rather than handling bytes directly.
+
+v 0.08: 2006, December 31st
+	added "start/stop all", "add/remove track" buttons and scrollbar to GUI;
+	changed implementations to use lists instead of arrays;
+	implemented "greedy memory";
+	changed file handling to use URLs not files;
+	packaged everything as a JAR file;
+
+v 0.09, 2007, January 2nd
+	very minor changes: fixed loading of new sounds;
+	temporarily removed error checking in openFile (is length correct?);
+	made "addToPending" method in TickGenerator.
+	Ready for first release!
+	
+v 0.10:	2007, January 27th
+	lots of changes: I've been very slack about updating this changelog!
+	moved all constant declarations to MMConstants.java
+	made parser using javacc
+	made data structures for event list
+	reorganised project into packages; made makefile
+	made new main class MM -- reads script or invokes gui as appropriate
+	still need to implement many features of scripts...
+
+v 0.11: 2007, January 28th
+	implemented accel blocks and tempo stack;
+	still to do: sound attributes, global settings,
+	    markers,
+	    macros and comments,
+	    systematic set of examples,
+	    documentation,
+	    new gui
+	bug: end sometimes gets truncated
+	logic error in accel blocks? does accel start before or after first
+	tick?
+
+v 0.12: 2007, January 29th
+	modified MM class to process command line arguments in a slightly
+	better way (but still much room for improvement);
+	implemented preprocessor
+	(but need to address nested macro bug).
+
+v 0.13: 2007, February 1st
+	implemented volume (but not global track volume),
+	starting from markers (but still need to do branches),
+	checking for empty infinite loops.
+
+2008, June 27th: need to fix two issues:
+	first part of sound missing (flush buffer first?)
+	when starting from marker, need option to play a countin
+
+2008, August: hack: created MMfile.java to send output to a file
+
+----
+
+2010: decided to split project into Polymetronome (gui only) and
+Magic Metronome (scripting)
+
+PM 0.2: 2010, April 2nd
+	wind back to 0.10 with some bits deleted, go to gui only version
+	let's call this one 0.20
+
+PM 0.3	2010, April 2nd
+	use loadBuiltInSounds from previous "1.4"(?)
+	make better volume icon
+	write some help text
+	To do: add load/save settings options; add load new sounds option
+
+MM 0.2	2010, April 3rd
+	first version of a GUI for scripts
+	Lots of things to do:
+	  write example scripts
+	  organise submenu layout for examples
+	  write help pages
+	  implement open/save feature
+	  implement undo for editing
+	  implement user-defined sounds
+	  implement sane error messages
+
+MM 0.3	2010, April 4th
+	implemented open/save/save as and submenus
+	wrote some more example scripts and some help pages
+	partially fixed parsing of arithmetic (we now have * and /
+	    but not + and -; division by zero is ignored;
+	    decimals are still accepted (and rounded) where integers are
+	    expected).
+
+MM 0.4	2010, April 5th
+	finished example scripts and help pages
+	sort of fixed bug where first sound doesn't always play
+	problem: tempi accept arithmetic expressions but repeat counters don't
+	problem: save button shouldn't need confirmation if you've previously
+	    saved with that filename
+	need to clean up error handling in MMPreProcessor.java !
+
+PM	2010, April 10th
+	renamed classes MM* to PM*
+	(very minor change, so no version number)
+
+	2010, April 11th
+	changed both poly and magic to load sound names from file instead of hard-coded
+
+MM 0.4.1	2010, April 11th
+	fixed parsing of arithmetic expressions
+	some slightly more helpful error messages
+	modified ScriptPlayer.java to accept zero length accel blocks
+	added flag to check if script uses macros (will be useful later!)
+
+MM 0.5	2010, April 12th
+	fixed ScriptPlayer.setFramePosition (was starting one tick too late)
+	seems that playing ten empty buffers before starting is the thing to do
+	implemented start from time and start from marker
+	(need to write documentation that goes with those things)
+
+MM 0.5.1	2011, December 28th
+	haven't edited anything since approx April 2010, but made a spare copy
+	just in case
+
+MM 0.6	2012, January ??
+	fixed some typos in help pages and example scripts
+	fixed bug with pause/resume button labelling
+
+work in progress: just started on the syntax checker
+
+(BTW: to make source tarball: move MM to a different name then something like
+tar -c -z -f polymetronome-0.3.0.tar.gz polymetronome-0.3.0/ )

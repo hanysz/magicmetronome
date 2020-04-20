@@ -1,0 +1,6 @@
+# Magic Metronome can do two or more things at once!
+# To play multiple tracks, simply enclose each
+# track in braces "{" and "}".
+# Here is a two-against-three polyrhythm:
+
+{90 R30(a)} {60 R20(b)}

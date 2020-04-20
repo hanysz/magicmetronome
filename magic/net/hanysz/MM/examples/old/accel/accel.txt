@@ -1,0 +1,11 @@
+# To speed up or slow down gradually, use an "accelerando block",
+# introduced by a capital "A":
+
+A(60 R15(baaa) 300)
+
+# The letter "A" must be followed by a block enclosed in parentheses.
+# You can give a starting tempo and a finishing tempo,
+# but you can't change tempo in the middle.
+# The next line would produce an error message, if you deleted the "#" at the start:
+# A(60 aaaaa 80 aaaaa 100)
+

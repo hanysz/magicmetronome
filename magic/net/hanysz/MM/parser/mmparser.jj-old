@@ -1,0 +1,435 @@
+/* Magic Metronome parser, first and trivial version */
+// updated 26th January 2007, still lots to do...
+
+options {
+    STATIC = false;
+}
+
+
+PARSER_BEGIN(MMScriptParser)
+    import net.hanysz.MM.events.*;
+    public class MMScriptParser implements net.hanysz.MM.MMConstants {
+
+
+	public static void preProcess(StringBuilder theScript) {
+	    // remove comments and expand macro definitions
+	}
+
+
+	public static void postProcess(MMEventList eventList) {
+	    // put accelerandi into correct form;
+	    // check for empty infinite repeats
+	}
+
+/*  moved to ../ParserTest
+	public static void main(String[] args)
+	throws ParseException, TokenMgrError {
+	    MMEventList eventList = new MMEventList();
+	    java.io.StringReader sr = new java.io.StringReader(args[0]);
+	    java.io.Reader r = new java.io.BufferedReader(sr);
+	    MMScriptParser parser = new MMScriptParser(r);
+	    parser.Start(eventList);
+	}
+*/
+    }
+PARSER_END(MMScriptParser)
+
+
+SKIP : { < WHITESPACE : " " | "\n" | "\r" | "\r\n" | "\t" > }
+TOKEN : { < LOWER_CASE_LETTER : ["a"-"z"] > }
+TOKEN : { < RELATIVE_TEMPO : "T" > }
+TOKEN : { < REPEAT : "R" > }
+TOKEN : { < BLOCK_START : "(" > }
+TOKEN : { < BLOCK_END : ")" > }
+TOKEN : { < PAUSE : "S" > }
+TOKEN : { < BRANCH_START : "{" > }
+TOKEN : { < BRANCH_END : "}" > }
+TOKEN : { < ACCEL : "A" > }
+TOKEN : { < VOLUME : "V" > }
+TOKEN : { < PAN : "P" > }
+TOKEN : { < END : "E" > }
+TOKEN : { < LINEAR_ACCEL : "L" > }
+TOKEN : { < MARKER : "M" (<WHITESPACE>)* "\"" (<LOWER_CASE_LETTER>)* "\"" > }
+TOKEN : { < PUSH_TEMPO : "[" > }
+TOKEN : { < POP_TEMPO : "]" > }
+TOKEN : { < SHORT_PAUSE : "," > }
+TOKEN : { < MEDIUM_PAUSE : ";" > }
+TOKEN : { < PLUS_SIGN : "+" > }
+TOKEN : { < MINUS_SIGN : "-" > }
+TOKEN : { < TIMES_SIGN : "*" > }
+TOKEN : { < DIVIDE_SIGN : "/" > }
+TOKEN : { < REAL_NUMBER : <DIGITS> | <DIGITS> "." <DIGITS> > }
+//TOKEN : { < WHOLE_NUMBER : <DIGITS> > }
+TOKEN : { < #DIGITS : (["0"-"9"])+ > }
+
+
+void Start(MMEventList eventList) :
+{}
+{
+    script(eventList)
+    <EOF>
+    {
+	//System.out.println(eventList);
+    }
+}
+
+
+int script(MMEventList eventList) :
+{
+    int length=0, sublength = 0;}
+{
+    (
+	tempo(eventList)
+    |
+	accelBlock(eventList)
+    |
+	repeatBlock(eventList) // weird javacc warning?
+    |
+	branch(eventList)
+    |
+	nonTempoEvent(eventList)
+    )+
+    {return length;}
+}
+
+
+void tempo(MMEventList eventList) :
+{}
+{
+    (
+	absoluteTempo(eventList)
+    |
+	relativeTempo(eventList)
+    |
+	popTempo(eventList)
+    )
+}
+
+
+void absoluteTempo(MMEventList eventList) :
+{
+    float tempo;
+}
+{
+    (
+	tempo = realNumber()
+	{
+	    eventList.add(new AbsoluteTempoEvent(tempo));
+	}
+    )
+}
+
+
+void relativeTempo(MMEventList eventList) :
+{
+    float tempo;
+}
+{
+    (
+	<RELATIVE_TEMPO>
+	tempo = realNumber()
+	{
+	    eventList.add(new RelativeTempoEvent(tempo));
+	}
+    )
+}
+
+
+void popTempo(MMEventList eventList) :
+{}
+{
+    (
+	<POP_TEMPO>
+    )
+    {eventList.add(new PopTempoEvent());}
+}
+
+
+void accelBlock(MMEventList eventList) :
+// very incomplete...
+{
+    int length = 0;
+    AccelStartEvent accelEvent = new AccelStartEvent();
+}
+{
+    (
+	startAccel(eventList, accelEvent)
+	<BLOCK_START>
+	(linearAccel(accelEvent))?
+	(absoluteTempo(eventList) | relativeTempo(eventList))?
+		// the above produces a warning that I don't understand
+	fixedTempoEventList(eventList)
+	(absoluteTempo(eventList) | relativeTempo(eventList))?
+	endAccel(eventList)
+    )
+    {
+    }
+}
+
+
+void startAccel(MMEventList eventList, AccelStartEvent accelEvent) :
+{}
+{
+    (
+	<ACCEL>
+    )
+    {eventList.add(accelEvent);}
+}
+
+
+void linearAccel(AccelStartEvent accelEvent) :
+{}
+{
+    (
+	<LINEAR_ACCEL>
+    )
+    {accelEvent.setMode(LINEAR_ACCEL_MODE);}
+}
+
+
+// void accelStartTempo(AccelStartEvent accelEvent) :
+
+
+
+void endAccel(MMEventList eventList) :
+{}
+{
+    (
+	<BLOCK_END>
+    )
+    {eventList.add(new AccelEndEvent());}
+}
+
+
+void fixedTempoEventList(MMEventList eventList) :
+{}
+{
+    (
+    	(nonTempoEvent(eventList))*
+    )
+    {}
+}
+
+
+void repeatBlock(MMEventList eventList) :
+{}
+{
+    (
+	repeatCount(eventList) // adds RepeatStartEvent
+	// <BLOCK_START> is inside repeatCount
+	script(eventList)
+	<BLOCK_END>
+    )
+    {eventList.add(new RepeatEndEvent());}
+}
+
+
+void repeatCount(MMEventList eventList) :
+{}
+{
+    (
+	finiteRepeatCount(eventList)
+    |
+	infiniteRepeatCount(eventList)
+    )
+}
+
+
+void finiteRepeatCount(MMEventList eventList) :
+{
+    int numberOfRepeats = INFINITE_REPEAT;
+}
+{
+    (
+	<REPEAT>
+	(numberOfRepeats = positiveInteger())?
+	<BLOCK_START>
+    )
+    {eventList.add(new RepeatStartEvent(numberOfRepeats));}
+}
+
+
+void infiniteRepeatCount(MMEventList eventList) :
+{
+    int numberOfRepeats = INFINITE_REPEAT;
+}
+{
+    (
+	<BLOCK_START>
+    )
+    {eventList.add(new RepeatStartEvent(INFINITE_REPEAT));}
+}
+
+
+void branch(MMEventList eventList) :
+{
+    MMEventList branchEventList = new MMEventList();
+}
+{
+    (
+	<BRANCH_START>
+	script(branchEventList)
+	<BRANCH_END>
+    )
+    {eventList.add(new BranchEvent(branchEventList));}
+}
+
+
+void nonTempoEvent(MMEventList eventList) :
+{}
+{
+    (
+	sound(eventList)
+    |
+	pause(eventList)
+    |
+	marker(eventList)
+    |
+	pushTempo(eventList)
+    |
+	end(eventList)
+    |
+	fixedTempoRepeatBlock(eventList)
+    )
+}
+
+
+void sound(MMEventList eventList) :
+{
+    Token t;
+    char firstChar;
+    int value;
+}
+{
+    (
+	t = <LOWER_CASE_LETTER>
+	{
+	     firstChar = t.image.charAt(0);
+	     value = (int)firstChar - (int)'a';
+	     eventList.add(new SoundEvent(value));
+	}
+    )
+}
+
+
+void pause(MMEventList eventList) :
+{}
+{
+    (
+	shortPause(eventList)
+    |
+	mediumPause(eventList)
+    |
+	longPause(eventList)
+    )
+}
+
+
+void shortPause(MMEventList eventList) :
+{}
+{
+    <SHORT_PAUSE>
+    {eventList.add(new SoundEvent(SILENT_SOUND));}
+}
+
+
+void mediumPause(MMEventList eventList) :
+{}
+{
+    <MEDIUM_PAUSE>
+    {
+    	eventList.add(new SoundEvent(SILENT_SOUND));
+    	eventList.add(new SoundEvent(SILENT_SOUND));
+    }
+}
+
+
+void longPause(MMEventList eventList) :
+{
+    int numberOfTicks;
+}
+{
+    <PAUSE>
+    numberOfTicks = positiveInteger()
+    {
+	for (int i = 0; i < numberOfTicks; i++) {
+	    eventList.add(new SoundEvent(SILENT_SOUND));
+	}
+    }
+}
+
+
+void marker(MMEventList eventList) :
+{
+    Token t;
+    String markerName;
+    int startOfName, endOfName;
+}
+{
+    t = <MARKER>
+    {
+	startOfName = t.image.indexOf('"')+1;
+	endOfName = t.image.lastIndexOf('"');
+	markerName = t.image.substring(startOfName, endOfName);
+	eventList.add(new MarkerEvent(markerName));
+    }
+}
+
+
+void pushTempo(MMEventList eventList) :
+{}
+{
+    (
+	<PUSH_TEMPO>
+    )
+    {eventList.add(new PushTempoEvent());}
+}
+
+
+void end(MMEventList eventList) :
+{}
+{
+    (
+	<END>
+    )
+    {eventList.add(new EndOfTrackEvent());}
+}
+
+
+void fixedTempoRepeatBlock(MMEventList eventList) :
+{}
+{
+    (
+	repeatCount(eventList) // adds RepeatStartEvent
+	// <BLOCK_START>  -- included in repeatCount
+	(nonTempoEvent(eventList))*
+	<BLOCK_END>
+    )
+    {eventList.add(new RepeatEndEvent());}
+}
+
+
+float realNumber() throws NumberFormatException :
+{
+    Token t;
+}
+{
+    t = <REAL_NUMBER>
+    {
+	return Float.parseFloat(t.image);
+    }
+}
+
+
+int positiveInteger() throws NumberFormatException :
+{
+    Token t;
+}
+{
+    t = <REAL_NUMBER>
+    {
+	return (int)Float.parseFloat(t.image);
+		// cheating rather badly, for the moment...
+    }
+}
+

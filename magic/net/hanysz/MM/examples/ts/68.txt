@@ -1,0 +1,3 @@
+# Magic Metronome example script: 6/8 time
+
+120(baa V180aaa)

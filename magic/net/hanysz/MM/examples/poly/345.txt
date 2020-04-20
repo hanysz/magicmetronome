@@ -1,0 +1,5 @@
+# Magic Metronome example script: 3 against 4 against 5 polyrhythm
+#
+# Three tracks at once!  (You can have as many tracks as you like.)
+
+{95(a)}  {95*3/4 (b)}  {95*3/5 (c)}

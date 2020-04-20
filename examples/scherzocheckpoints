@@ -1,0 +1,49 @@
+# Mendelssohn/Rachmaninoff scherzo: checkpoints
+
+# count in:
+# 81 a a a a
+76 a a a a
+
+# set tempo to tenths of seconds for easy counting:
+#600
+570 # changed to slower version, total duration approx 5 min
+
+
+#nb wave file starts playing at 0.4 seconds, so we don't start counting from zero!
+
+# bar 41 at 30.3 seconds
+R299(,)c
+
+#bar 71 at 53.7 seconds
+R233(,)c
+
+#bar 99 at 1:14.4
+R206(,)c
+
+#bar 137 at 1:42.1
+R275(,)c
+
+#bar 159 at 1:58.4
+R162(,)c
+
+#bar 188 at 2:20.8
+R223(,)c
+
+#bar 222 at 2:46.1
+R252(,)c
+
+#bar 258 at 3:12.3
+R261(,)c
+
+#bar 297 at 3:40.7
+R283(,)c
+
+#bar 340 at 4:12.9
+R321(,)c
+
+#bar 363 at 4:29.6
+R166(,)c
+
+#end (after last note) at 4:46.5
+R168(,)c,,
+

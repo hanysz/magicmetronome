@@ -1,0 +1,6 @@
+# Magic Metronome example script: 3 against 4 polyrhythm
+#
+# If you can't be bothered calculating three-quarters of 90,
+# then Magic Metronome can do the arithmetic for you!
+
+{90(a)} {90*3/4 (b)}

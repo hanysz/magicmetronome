@@ -1,0 +1,6 @@
+# Magic Metronome example script: 2 against 3 polyrhythm
+#
+# Each pair of braces "{" and "}" represents a separate track.
+# Read the help pages to learn more about using tracks.
+
+{90(a)} {60(b)}

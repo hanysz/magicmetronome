@@ -1,0 +1,4 @@
+tick		tick.wav
+bell		bell.wav
+crash		crash.wav
+silly		silly.wav

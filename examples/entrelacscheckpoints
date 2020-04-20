@@ -1,0 +1,39 @@
+# checkpoints for Ligeti, "Entrelacs"
+
+\bar=",,,"
+\tick="[T4 ,]"
+# count in
+aaaa
+{c}
+R18(\bar)
+
+# bar 19
+{R5 (\tick) c}
+R11(\bar)
+
+# bar 30
+{R9(\tick) c}
+R16(\bar)
+
+# bar 46
+{R4(\tick) c}
+R8(\bar)
+
+# bar 54
+{R6(\tick) c}
+R10(\bar)
+
+# bar 64
+{c}
+R7(\bar)
+
+# bar 71
+{R5(\tick) c}
+R8(\bar)
+
+# bar 79
+{c}
+R11(\bar)
+
+# bar 90, last note
+R5(\tick) c

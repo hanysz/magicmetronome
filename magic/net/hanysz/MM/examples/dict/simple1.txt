@@ -1,0 +1,6 @@
+# Magic Metronome example script: Rhythmic dictation 1
+#
+# Listen to this rhythmic pattern and see if you can write it down in musical notation!
+# It's in 4/4 time.
+
+100 V200a a a ,  [T2 V200a aaa] aa

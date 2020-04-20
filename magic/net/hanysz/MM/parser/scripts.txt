@@ -1,0 +1,33 @@
+# valid:
+
+a
+10 a b d 25 fecs30a z 2 6
+10.4 bsd332.53 w
+a b 60 T1.03 a a T0.08 bcdc
+
+R20(a b c) d e E
+R 20 ( a b c ) d e E
+R20(abc)deE
+R	20   ( a			b c         )d e E
+R10 (a b R3 (e T2.3 R5 (zysd) ) E )
+isaf [ ]] [ R5(a s[ d E M"hello" ][[]) M"goodbye" E
+a b c A(L T20 e d f R5(e a c)) E
+A(20 R50(a) 100)
+
+
+# invalid:
+
+A
+*&^
+a b e * 9
+40 c 10.4.5
+a b T a b
+R 2 0 (a b c) d e E
+R 20 (a b c
+b  d ) ( e
+M"not a valid identifier"
+M"another_invalid_identifier"
+A(20 40 60)
+A(40 b c d A(29 e f d))
+
+

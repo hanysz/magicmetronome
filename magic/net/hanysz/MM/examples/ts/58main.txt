@@ -1,0 +1,5 @@
+# Magic Metronome example script: 5/8 time main beats only
+#
+# A comma gives one beat of silence.
+
+140(b,,a,)

@@ -1,0 +1,7 @@
+ex1: 120 a
+ex2: 80 b a a a
+ex3: 95 R3(b a a) R2(b a a a)
+ex4: 147 R3(c a a a) P4 90 (a c c)
+ex5: <60 R10(b a a c a) 180>
+ex6: 250 R2(b a a c a c a) (b; c, c,)
+ex7: [85 a] [85 P4 (72 R8(c) 120 R8(c)]

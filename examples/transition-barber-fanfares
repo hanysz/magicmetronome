@@ -1,0 +1,24 @@
+# from end of Barber sonata into fanfares
+\38tempo="120" # quaver beat!
+\accelstart="40" # one beat per bar
+\accelend="57.5"
+
+\countin="baa"
+
+\38tempo
+,
+\countin
+R6(aaa)
+T0.97 aaa #start allargando
+T0.97 aa T0.97 a
+
+\accelstart
+A(R18(a) \accelend)
+caaa
+
+T1.2 aa
+c R13(a)
+T0.714285 cc
+
+4, #15 second pause
+54R(a)

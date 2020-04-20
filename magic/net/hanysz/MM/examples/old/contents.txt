@@ -1,0 +1,59 @@
+# List of example files: name then filename.
+# The format of this file  has to be suitable for
+# a java scanner to easily read it,
+# therefore names can't contain any whitespace.
+# Underscore characters will be magically replaced by spaces later.
+# The keyword MENU indicates that following items belong in a submenu.
+
+Introduction			basic/welcome_message.txt
+Sounds_and_tempos		MENU
+4/4_time			basic/fourfour.txt
+6/8_time			basic/sixeight.txt
+Setting_the_tempo		basic/starttempo.txt
+Change_of_tempo			basic/changetempo.txt
+Relative_tempo_changes		basic/relativechangetempo.txt
+Extreme_tempos			basic/extreme.txt
+
+Repeats				MENU
+Simple_repeat			repeats/simple.txt
+Repeat_ten_times		repeats/tentimes.txt
+Repeat_for_ever			repeats/adinfinitum.txt
+What's_after_forever?		repeats/postinfinitum.txt
+Nested_repeats			repeats/nested.txt
+Repeats_and_tempos_example_1	repeats/tempochange1.txt
+Repeats_and_tempos_example_2	repeats/tempochange2.txt
+
+Rests/silences/pauses		MENU
+One_beat_rest			pauses/comma.txt
+Two_beat_rest			pauses/semicolon.txt
+Combining_rests			pauses/add.txt
+Bulgarian_rhythm		pauses/bulgarian.txt
+Long_pauses			pauses/long.txt
+Fractions_of_a_beat		pauses/fraction.txt
+
+Gradual_tempo_changes		MENU
+Accelerando			accel/accel.txt
+Ritardando			accel/rit.txt
+Using_relative_tempos		accel/relative.txt
+
+Using_multiple_tracks		MENU
+Two-against-three_polyrhythm	branches/twoagainstthree.txt
+A_rhythmic_canon		branches/canon.txt
+Two_sounds_at_once		branches/twoatonce.txt
+Tracks_and_repeats		branches/tracksandrepeats.txt
+
+Accents				MENU
+Accenting_one_tick		accents/single.txt
+Making_things_quieter		accents/quiet.txt
+Multiple_accents		accents/multiple.txt
+
+The_tempo_stack			MENU
+Returning_to_the_first_tempo	stack/tempoI.txt
+Remembering_several_tempos	stack/multistack.txt
+Tempos_and_tracks		stack/branchstack.txt
+
+#Macros				MENU
+
+#Subdividing_the_beat		MENU
+
+

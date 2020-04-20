@@ -1,0 +1,57 @@
+85 # crotchets per minute
+100
+115 # -- performance tempo
+T2
+\2="a,"
+\3="a,,"
+\4="a,,,"
+\22="a,b,"
+\5="a,,,,"
+\32="a,,b,"
+\23="a,b,,"
+\343="[T2 a,,b,,,b,,]"  # 5/8 bar as 3+4+3 semiquavers
+\6="a,,b,,"
+\34="a,b,b,"
+\716="[T2 a,,,b,,]"
+
+# two bar count in
+R2(abbbb)
+
+# bar 1
+R4(\5) \34\34\4\5\4\4
+\32\32\5
+
+# bar 14
+M"14"
+R5(\5)\34\34 R4(\5)
+
+# bar 25
+M"25"
+\3 \716
+\32\32\3\3\4\6\5\5
+
+# bar 35, one bar rest
+M"35"
+abbbb \6\6\32\32\6\6 \23 R9(\32)
+\343\343\23\343\4
+
+#bar 57, one bar rest
+M"57"
+abb
+R4(\5) \34\34\5\5\4\5\4\4
+
+#bar 70
+M"70"
+\34\32\32\32\5\716\4\5\32\32
+
+# bar 80, one bar rest
+M"80"
+\2\22 R18(\5)
+
+# bar 100
+M"100"
+\32\34\32\23\6\2
+\343\23 R3(\32)
+# bar 111: beats according to the beams not the barlines!
+\716\716\3\5\32
+c,,,,

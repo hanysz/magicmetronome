@@ -1,0 +1,9 @@
+# The different branches don't have to start simultaneously.
+# An opening brace "{" causes a new track to start at the
+# same time as the tick following the closing brace "}".
+# In this example, the second track starts simultaneously with sound "c" from the first track.
+
+104 aabaaaba        # This is the start of track 1
+{aabaaaba cbb,cbb, T2aaaac,b,aaaac,b, T1/2ddd,ddd}   # This is track 2
+cbb,cbb, T2aaaac,b,aaaac,b, T1/2ddd,ddd  # track 1 keeps going while track 2 plays
+

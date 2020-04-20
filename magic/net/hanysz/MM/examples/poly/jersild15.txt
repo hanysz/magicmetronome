@@ -1,0 +1,6 @@
+# Magic Metronome example script: This is the rhythm of example I.15
+# from Jorgen Jersild's book "Advanced Rhythmic Studies: Polyrhythmic".
+
+72
+{a[T3aaa][T2a,,a] [T3/2 R6(a)] [T3 R6(a)]a, [T4 ,R7(a)] [T3 R12(a) a,,,aa] [T3/2 R6(a)] R8(,)}
+{T2 b,bbbbbb b,b,b,b, bbbbb,bb b,bbb,bb bbbbbbbb b,b,b,b, b,bbbbb, b,,,,,,,}

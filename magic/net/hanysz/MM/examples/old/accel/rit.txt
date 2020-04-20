@@ -1,0 +1,12 @@
+# Sometimes a piece of music slows down gracefully at the end of a section,
+# then returns to the original tempo:
+
+132 R4(baa)  A(R2(baa) 60)  132 R4(baa)
+
+# Notice that the A() block doesn't have a starting tempo this time.
+# Both the start and finish tempos are optional.
+# If you leave out the start tempo, then it will start at whatever
+# tempo was current before the beginning of the block.
+# If you leave out the final tempo, then it will be very boring:
+# the tempo just won't change!
+# Try changing the tempos in this example and see what happens.

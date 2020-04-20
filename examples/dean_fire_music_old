@@ -1,0 +1,150 @@
+# Brett Dean, "Fire Music" (orchestral version), piano part
+
+# Count quavers throughout
+\1="b,"
+\2="b,a,"
+\3="b,a,a,"
+\4="b,a,a,a,"
+\5="b,a,a,a,a,"
+\6="b,a,a,a,a,a,"
+
+\38="b,,"
+
+\32="b,,a,"
+\23="b,a,,"
+\33="b,,a,,"
+\223="b,a,a,,"
+\232="b,a,,a,"
+\322="b,,a,a,"
+\43="b,,,a,,"
+\34="b,,a,,,"
+\332="b,,a,,a,"
+\333="b,,a,,a,,"
+\3222="b,,a,a,a,"
+\433="b,,,a,,a,,"
+\343="b,,a,,,a,,"
+\3322="b,,a,,a,a,"
+\334="b,,a,,a,,,"
+\344="b,,a,,,a,,,"
+\3333="b,,a,,a,,a,,"
+\33222="b,,a,,a,a,a,"
+\15="b,,a,,a,,a,,a,,"
+
+150 # crotchet=75, count in quavers
+#135 # practice tempo; delete this line after use!
+
+M"69" # bar 69
+\3\3\3\5\5
+R8(\3) \223
+
+# bar 83, top of page 2
+M"83"
+\3\3
+M"85" # bar 85
+R9(\3)
+\4 \223 R5(\3)
+
+M"100" # bar 100
+\3 \223
+
+M"102" # bar 102
+\23
+[T2 \43 \43]  # two 7/16 bars
+\2 # notated as 4/8
+[T2 \23\23\23 \3322 \23 \23 \23]
+\2
+M"115" # bar 115
+[T2 \43 \33222 \3322 \333]
+\38
+
+M"120" # bar 120
+\3\38\3\23\223\38\3\223\3
+
+M"129" # bar 129, last bar of page 3
+\4
+R4(\3) \4\2\1\23\38
+\1 # notated as 2/8
+\2\1\38\3\3\3
+\223\4
+\2 # notated as 4/8
+\23\23\1\2\1
+
+M"154" # bar 154, top of page 5
+[T2 \43]
+\1\38\1\38\1\1\2\2\38
+[T2 R6(\38) \43\38\38\32]
+\2 [T2 \3333\333]
+
+M"177" # bar 177, double bar on last line of page 5
+R10(\38)
+\2\2 # notated as 4/8
+\38\2 R5(\38)
+
+M"197" # last bar of the 6 bar rest on page 6, second system
+\38\38\3
+[T2 R15(\2) \3\2]
+
+T1.5 # bar 216: this is a tempo of 112.5
+\4\3\3\1\4\2\5
+b,,,a,,,a,,, # 3/2 bar
+\2\23\2\2\2 [T2 \433 \333]
+
+M"232" # bar 232
+T0.666666666666 # back to 75 beats per minute
+R10(\333)
+\333\333 # actually notated as 3/4 in a different tempo
+\3333
+
+R7(\3) # this is the "ad lib" bar 245
+
+# lots of rests not notated here: skip ahead...
+M"331" # bar 331
+b,,,a,,,a,,, # 3/2 bar
+R22(\333) \33\33
+\333\333
+\333\333 R5(\3333)
+
+# more rests, skip again
+
+M"432" # bar 432: one bar before entry on page 10, second system
+R3(\3)
+T1.5 # new tempo is crotchet=112.5
+R5(\2)
+\32\33\33\32
+
+# from bar 444, count in semiquavers
+[T2
+  \33\333\15
+  R8(\3333)
+M"455" # bar 455: one bar before entry on page 11, second system
+  \3333
+  \334\34\334\344
+  \3333\3333\15\333\34
+  \344 R3(\3333)
+  \334\343\433\3333
+M"473" # bar 473: top of page 12
+  \3333\334\3222 R3(\333)
+  R3(\34) R3(\333)
+  \334\334
+M"487" # bar 487: last bar of page 12
+  \333\3333\33 R3(\34) \3333
+] # back to counting in quavers
+T0.666666666666 # back to 75 beats per minute
+R6(\3)
+[T2 \3] # 3/8 bar with three beats
+R13(\3)\4 R10(\3)
+
+M"525" # bar 525: cue at the bottom of page 13
+R7(\3)\223\3\4
+R9(\3)
+
+M"544" # bar 544: page 14, last system
+120 T2 # tempo is 120 crotchets per minute; count quavers
+\4\4\3
+R12(\4)
+
+M"561" # bar 559: page 15, last three bars
+A(\4\4\4 180)  # slow down to 90 crotchets per minute
+A(\4\4\4 120) A(\4\4 92)
+c
+

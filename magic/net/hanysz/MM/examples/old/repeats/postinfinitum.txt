@@ -1,0 +1,6 @@
+# If you repeat something forever, then anything after the repeat
+# will never happen!
+
+(a) b
+
+# In this example, you shouldn't ever hear sound 'b'.

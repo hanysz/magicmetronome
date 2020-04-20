@@ -1,0 +1,21 @@
+# How do you pause for half a beat?
+# Answer: double the tempo, then pause for a whole beat,
+# then restore the original tempo.
+# Remember that the letter T gives a relative tempo change.
+
+# Here is four bars of 3/4, with half-beat rests after bars 2 and 3:
+120 baa baa T2,T1/2 baa T2,T1/2 baa
+
+30,  # wait two seconds before the next part
+
+# For comparison, four bars of 3/4 with a whole beat rest after bars 2 and 3:
+120 baa baa,baa,baa
+
+30,  # wait two seconds before the next part
+
+# Of course, you can make smaller fractions of a beat too:
+
+120 baa R3( T4,T1/4 baa) # four bars of 3/4 with quarter-beat rests in between
+
+# Can you hear the difference between half a beat and quarter of a beat?
+# Try editing the script to play it at a slower tempo if you're not sure!

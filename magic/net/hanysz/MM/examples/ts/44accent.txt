@@ -1,0 +1,8 @@
+# Magic Metronome example script: 4/4 time with accent
+#
+# The letter "V" introduces a volume change.
+# It affects only the following tick.
+# The number after the "V" is a percentage:
+# 200% = twice as loud.
+
+60(V200 a a a a)

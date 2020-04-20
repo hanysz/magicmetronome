@@ -1,0 +1,20 @@
+# Chopin's 4th ballade from bar 191 to end
+# with some commas inserted to try and keep it sane!
+
+52
+T3 # count in with quavers
+baabaa
+T1/3
+R7(ba)
+# stretto -- start a little early at bar 198
+A(bababa 90) 70baba
+# pause at bar 202
+48 ,, T3 aaa T1/3
+R5(b,),,,, T3 baaaaa T1/3
+
+# Coda: bar 211
+R17(ba)
+# Accel: bar 227
+A(50 R5(ba) 60)
+R6(ba)
+c,

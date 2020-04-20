@@ -1,0 +1,6 @@
+# Magic Metronome example script: constant against changing polyrhythm
+#
+# One track stays at constant speed, while the other speeds up and slows down.
+
+{75 R26(b)}
+{A(75 R20(a) 200) A(200 R20(a) 75)}

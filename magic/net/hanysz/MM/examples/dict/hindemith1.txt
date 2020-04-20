@@ -1,0 +1,5 @@
+# Magic Metronome example script: This is Dictation 6a
+# from Hindemith's book "Elementary training for musicians".
+# It's in 4/4 time.
+
+80 V200aaa, V200aa,a V200aaa,

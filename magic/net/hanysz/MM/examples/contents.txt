@@ -1,0 +1,57 @@
+# List of example files: name then filename.
+# The format of this file  has to be suitable for
+# a java scanner to easily read it,
+# therefore names can't contain any whitespace.
+# Underscore characters will be magically replaced by spaces later.
+# The keyword MENU indicates that following items belong in a submenu.
+
+Time_signatures			MENU
+3/4_time			ts/34.txt
+4/4_time_with_bell		ts/44bell.txt
+4/4_time_with_accent		ts/44accent.txt
+4/4_time_for_eight_bars		ts/44stop.txt
+6/8_time			ts/68.txt
+5/8_time			ts/58.txt
+5/8_as_3+2			ts/58-3+2.txt
+5/8_as_2+3			ts/58-2+3.txt
+5/8_main_beats_only		ts/58main.txt
+7/8_as_3+2+2			ts/78.txt
+7/8_main_beats			ts/78main.txt
+Bulgarian_rhythm		ts/bulgarian.txt
+
+Change_time_or_tempo		MENU
+3/4_alternating_with_4/4	change/3444.txt
+Slow_middle_section		change/trio.txt
+Fast_coda			change/coda.txt
+Comma_at_phrase_end		change/comma.txt
+Speed_up			change/accel.txt
+Slow_down_at_phrase_end		change/rit.txt
+Rubato				change/rubato.txt
+Long_pause			change/pause.txt
+
+Rhythmic_dictation		MENU
+Simple_example_1		dict/simple1.txt
+Simple_example_2		dict/simple2.txt
+Dotted_rhythms			dict/dotted.txt
+Triplets			dict/triplets.txt
+Hindemith_1			dict/hindemith1.txt
+Hindemith_2			dict/hindemith2.txt
+Hindemith_3			dict/hindemith3.txt
+Hindemith_4			dict/hindemith4.txt
+
+Polyrhythms			MENU
+2_against_3			poly/23.txt
+3_against_4			poly/34.txt
+3_against_5			poly/35.txt
+4_against_5			poly/45.txt
+3_against_7			poly/37.txt
+3_against_4_against_5		poly/345.txt
+constant_against_changing	poly/change.txt
+Jersild_example_15		poly/jersild15.txt
+Jersild_example_19		poly/jersild19.txt
+Jersild_example_69		poly/jersild69.txt
+
+Advanced			MENU
+A440				adv/A440.txt
+Rite_of_Spring_(excerpt)	adv/ROS.txt
+Nested_tuplets			adv/nested.txt

@@ -1,0 +1,228 @@
+# Liszt "Dante" sonata
+# tempos taken from recordings:
+# Shimada: Ayano Shimada, SIPCA 2004 semifinal (total duration 15:44)
+# Brendel: Alfred Brendel video on YouTube (total duration approx 16:00)
+# Arrau: CD
+# Hough: CD
+#
+
+\comma="T4 , T0.25"
+
+\bar35="108"
+# goal: 108
+# Arrau: 
+# Brendel: 126
+# Hough: 
+# Shimada: 126
+
+\bar77="108"
+# goal:
+# Arrau: 
+# Brendel: 120
+# Hough: 
+# Shimada: 
+
+\bar84="108"
+# goal:
+# Arrau: 
+# Brendel: 
+# Hough: 
+# Shimada: 
+
+\bar90="126"
+# goal: 126
+# Arrau: 
+# Brendel: 132
+# Hough: 
+# Shimada: 144
+
+\bar103="108"
+# goal: 108
+# Arrau: 
+# Brendel: 
+# Hough: 
+# Shimada: 
+
+\bar115="69"
+# goal: 
+# Arrau: 
+# Brendel: 
+# Hough: 
+# Shimada: 
+
+\bar124="63"
+# goal: 
+# Arrau: 
+# Brendel: 
+# Hough: 
+# Shimada: 
+
+\bar136="63"
+# goal: 
+# Arrau: 
+# Brendel: 
+# Hough: 
+# Shimada: 
+
+\bar145="63"
+# goal: 
+# Arrau: 
+# Brendel: 
+# Hough: 
+# Shimada: 
+
+\bar157="42"
+# goal: 
+# Arrau: 
+# Brendel: 
+# Hough: 
+# Shimada: 
+
+\bar167="42"
+# goal: 
+# Arrau: 
+# Brendel: 
+# Hough: 
+# Shimada: 
+
+\bar181="104"
+# goal: 104
+# Arrau: 
+# Brendel: 112-120
+# Hough: 
+# Shimada: 138
+
+\bar199="104"
+# goal: 
+# Arrau: 
+# Brendel: 
+# Hough: 
+# Shimada: 
+
+\bar211="120"
+# goal: 120-132?
+# Arrau: 
+# Brendel: 138
+# Hough: 
+# Shimada: 120
+
+\bar235="120"
+# goal: 
+# Arrau: 
+# Brendel: 
+# Hough: 
+# Shimada: 
+
+\bar250="120"
+# goal: 
+# Arrau: 
+# Brendel: 
+# Hough: 
+# Shimada: 
+
+\bar273="50"
+# goal: 
+# Arrau: 
+# Brendel: 
+# Hough: 
+# Shimada: 
+
+\bar290="60"
+# goal: 
+# Arrau: 
+# Brendel: 
+# Hough: 
+# Shimada: 
+
+\bar300="84"
+# goal: 84
+# Arrau: 
+# Brendel: 126
+# Hough: 
+# Shimada: 120
+
+\bar306="100"
+# goal: 100
+# Arrau: 
+# Brendel: 132
+# Hough: 
+# Shimada: 120
+
+\bar327="138"
+# goal: 138
+# Arrau: 
+# Brendel: 144
+# Hough: 
+# Shimada: 144
+
+\bar339="152"
+# goal: 76-92?
+# Arrau: 
+# Brendel: 92
+# Hough: 
+# Shimada: 108
+
+\bar353="138"
+# goal: 138 or faster?
+# Arrau: 
+# Brendel: 144
+# Hough: 
+# Shimada: 152
+
+\bar361="120"
+# goal: 
+# Arrau: 
+# Brendel: 
+# Hough: 
+# Shimada: 
+
+\bar366="100"
+# goal: 
+# Arrau: 
+# Brendel: 
+# Hough: 
+# Shimada: 
+
+###################
+# for the time being, just start at bar 300
+####
+#
+
+M"S"
+\bar300
+R4(baaa)
+A(baaabaaa \bar306)
+
+M"T"
+\bar306
+R6(baaa)
+T0.92
+baaa
+T0.94 baaa \bar306 # allargando for bars 312-3
+R4(baaa)
+A(R9(baaa)\bar327)
+
+M"U"
+\bar327
+#R11(baaa)
+R5(baaabaaa\comma)
+baaa
+A(baaa\bar339)
+
+M"V"
+\bar339
+T0.5
+R13(ba)
+T0.9 b T0.6 a
+
+M"W"
+\bar353
+ca # cue!
+R7(baaa)
+T0.9 baaa
+
+M"X"
+\bar361
+R5(baaa)
+\bar366
+R7(baaa)b

@@ -1,0 +1,9 @@
+# You can put repeats inside other repeats.
+# For example, suppose you want two bars of 3/4 time followed by one bar of 2/4,
+# and you want to repeat that three-bar pattern five times.
+# You can do it like this:
+
+132 R5( R2(baa) ba)
+
+# Just make sure that your parentheses balance:
+# for every '(' you need a matching ')'.

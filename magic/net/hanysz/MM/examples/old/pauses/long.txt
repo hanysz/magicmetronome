@@ -1,0 +1,10 @@
+# You can make longer pauses (or short ones if you wish!)
+# by using the capital letter S followed by the number of
+# beats of silence you want.
+
+200 baaaa bS4 baaaa bS9 baaaa
+
+60 S4  # Wait for four seconds
+
+200 baaaa bS4 baaaa bS9 baaaa
+

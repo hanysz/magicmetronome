@@ -1,0 +1,22 @@
+# Welcome to Magic Metronome!
+
+# Type your script at the bottom of this page, then press the "play" button to see what it sounds like.
+# Alternatively, load a script using the "Examples" menu.
+
+# Lines beginning with "#" are comments, which are ignored by Magic Metronome.
+# Lower case letters "a" through "d" will play the four built-in sounds.
+# Numbers give tempos in beats per minute. If you don't specify a tempo, then
+# you'll get the default tempo of 60.
+# Put parentheses around something to repeat it.
+
+# Visit the "Help" menu to learn about more advanced features,
+# or explore the "Examples" menu to test drive Magic Metronome.
+
+80 aaaa # count in
+40 R8(a) 48 R16(a)
+60 R31(a)
+A(aaaa 42) a
+T2aaa96a
+48aa
+R20(a)
+40 R100(a)

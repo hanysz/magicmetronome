@@ -1,0 +1,14 @@
+# "Variations on a Fantasy" (2004) by Matthew Atherton, variation 2
+70 # crotchets per minute
+80
+90 # -- performance tempo
+T4
+
+# two bar count in
+    b,a,a,,b,,,a,a,,
+    b,,,,,,a,,,,,,,,
+R14(b,,,,,,a,,,,,,,,)
+
+# page 4, third system, 1st bar: change to 8+9
+   b,a,a,,,b,,,,a,,,
+R8(b,,,,,,,a,,,,,,,,)

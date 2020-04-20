@@ -1,0 +1,60 @@
+T2
+\7="a,,a,a,"
+\43="a,,,a,,"
+\6="a,,a,,"
+\8="a,,a,,a,"
+\2="a,a,"
+\4="a,,,"
+
+\countin="\7\7"
+\firstbit="R21(\7)"
+\nextbit="R28(\7)"
+
+\secondbit="R14(\7)"
+\finalbit="\7\7\6\6 R4(\8)
+	R10(\4)\43 R12(\7) \43"
+
+\countin
+R5(\7)
+{c}\firstbit
+M"A"
+\nextbit
+\4
+R5(\7)
+{c}\firstbit
+\nextbit
+
+M"B"
+\7\43
+
+S14
+T0.4
+a,a, # two counts in to:
+a,aa # andante bar
+T2.5
+
+{c}\secondbit
+M"C"
+\finalbit
+\43 \7
+
+S14
+M"D"
+T0.25 R6(a) T4 # attempt at second andante bar
+
+{c}\secondbit
+\finalbit
+
+M"E"
+R9(\43)
+\7
+a,,,,,, # this is bar 125
+R7(\7)
+
+#bar 133
+\43
+a,,a,,
+\43 # across the bar line!
+\43 a S8
+R4(\7)
+R5(\6)

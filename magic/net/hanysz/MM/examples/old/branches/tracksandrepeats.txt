@@ -1,0 +1,8 @@
+# If you start a new track inside a repeat, then you'll
+# actually get a separate track created for each time
+# through the repeat.  This can produce some strange effects:
+
+R3(a a {14 dd} a)
+
+# Notice that you can hear sound "d" six times, not just twice.
+# (You have to wait a couple of seconds for the sixth one!)

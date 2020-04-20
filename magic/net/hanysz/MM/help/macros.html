@@ -1,0 +1,51 @@
+<table align="center" width="100%">
+<td align="left"><a href="tempostack.html">Previous: The tempo stack</a></td>
+<td align="center"><a href="contents.html">Contents</a></td>
+<td align="right"><a href="files.html">Next: Loading and saving scripts</a></td>
+</table>
+<hr>
+<br>
+<h2>Macros</h2>
+Macros allow you to define abbreviations.
+This can make your script shorter if you're using repetitive patterns,
+and it can make the structure of a long script clearer.
+You create a macro with a statement of the form
+<p>
+<code>\</code><em>name</em><code>="</code><em>definition</em><code>"</code>
+<p>
+and then use it just by typing
+<p>
+<code>\<em>name</em></code>
+<p>
+The name can be any combination of letters and numbers
+(but with no punctuation or spaces).
+<p>
+For example, suppose you want to make a track
+that switches between 3/4 and 4/4 bars in an irregular pattern.
+You might do something that begins like this:
+<p>
+<code>\34bar="baa"<br>
+\44bar="baaa"<br>
+\44bar\44bar\34bar\44bar R5(\34bar) \44bar
+</code>
+<p>
+Or if you had a long piece in <em>AABA</em> form,
+instead of typing out the <em>A</em> section three times
+you could use macros:
+<p>
+<code>\Asection="</code><em>something</em><code>" <br>
+\Bsection="</code><em>something else</em><code>" <br>
+\Asection\Asection\Bsection\Asection
+</code>
+<p>
+It's possible to create complicated structures by nesting macros inside other macros.
+However, a macro can only refer to other macros that were described previously.
+Therefore you can do this:
+<p>
+<code>\34bar="aaa"<br>
+\ten34bars="R10(\34bar)"</code>
+<p>
+but not this:
+<p>
+<code>\firstthing="R10(\secondthing)"<br>
+\secondthing="R10(\firstthing)"</code>

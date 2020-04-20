@@ -1,0 +1,3 @@
+# Magic Metronome example script: 7/8 time, main beats only
+
+200(b,,a,a,)

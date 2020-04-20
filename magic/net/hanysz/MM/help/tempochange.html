@@ -1,0 +1,44 @@
+<table align="center" width="100%">
+<td align="left"><a href="repeats.html">Previous: Repeats</a></td>
+<td align="center"><a href="contents.html">Contents</a></td>
+<td align="right"><a href="pauses.html">Next: Rests, pauses and silences</a></td>
+</table>
+<hr>
+<br>
+<h2>Gradual tempo changes</h2>
+To make a section of your script speed up, you need to use an
+"accelerando block".  This consists of a capital letter "A"
+followed by something in parentheses.  For example:
+<p>
+<code> A(60 R5(b a a a) 120) </code>
+<p>
+will give you you five bars of 4/4 time,
+starting at 60 beats per minute
+and gradually speeding up to 120 beats per minute.
+<p>
+Things to notice:
+<ul>
+    <li>the letter "A" goes <em>before</em> the opening parenthesis</li>
+    <li>the starting tempo "60" goes <em>after</em> the opening parenthesis</li>
+    <li>the final tempo "120" goes <em>before</em> the closing parenthesis</li>
+    <li>the starting tempo is optional;
+    if you leave it out, the block will start at the same tempo as
+    whatever preceded it;</li>
+    <li>the final tempo is optional, but if you leave it out
+    (or accidentally put it <em>after</em> the closing parenthesis)
+    then the tempo won't change at all;</li>
+    <li>apart from the beginning and end, you're not allowed to use
+    tempo changes during the accelerando block.</li>
+</ul>
+
+If you want something to slow down instead of speed up,
+you still use an accelerando block;
+you just make the final tempo slower than the starting tempo.
+For example:
+<p>
+<code> A(120 R5(b a a a) 60) </code>
+<p>
+will give you you five bars of 4/4 time,
+starting at 120 beats per minute
+and gradually slowing down up to 60 beats per minute.
+

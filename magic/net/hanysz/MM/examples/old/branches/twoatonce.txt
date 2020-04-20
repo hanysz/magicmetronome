@@ -1,0 +1,7 @@
+# Any time you want to play two sounds at once,
+# you can do it by starting a new track.
+
+a a {d}a  a a {c} a a a {b} a
+
+# Remember that each new track starts at the same time
+# as the following tick.

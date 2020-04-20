@@ -1,0 +1,12 @@
+# Magic Metronome can go very fast!
+# We know that middle C usually has a frequency of about 262 cycles per second.
+# What's that in cycles per minute?  262 times 60 makes 15720.
+# So let's see what 15720 ticks per minute sounds like:
+
+15720 R262(a)    # Play middle C for a second
+
+# Actually, we didn't need to figure out 262 times 60.
+# We could have asked Magic Metronome to do the arithmetic for us,
+# like this:
+
+262*60 R262(a)   # Play middle C for another second

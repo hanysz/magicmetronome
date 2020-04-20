@@ -1,0 +1,5 @@
+# Use the capital letter 'R' followed by a number to indicate a repeat.
+# The section that you want to repeat must be in parentheses.
+# Make sure that every '(' has a matching ')'!
+
+R2(caaa) d

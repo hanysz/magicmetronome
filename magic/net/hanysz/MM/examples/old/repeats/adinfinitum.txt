@@ -1,0 +1,5 @@
+# If you put something in parentheses without a letter 'R",
+# it will keep repeating for ever (or until you press the "Stop" button).
+# In this example, the number 180 is a tempo, not a repeat counter.
+
+180(baababa)

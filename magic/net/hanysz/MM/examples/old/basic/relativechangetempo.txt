@@ -1,0 +1,11 @@
+# Tempo changes can be expressed relative to the previous tempo,
+# instead of in beats per minute.
+# Use the letter "T" followed by a number to produce a relative tempo change.
+# This example starts off at 60 beats per minute,
+# then changes to double speed (120 bpm), then three-quarter speed (90 bpm).
+
+60 baaabaaa T2 baaabaaa T0.75 baaabaaa
+
+# You can also use fractions, so the following line does the same thing.
+
+60 baaabaaa T2 baaabaaa T3/4 baaabaaa

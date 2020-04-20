@@ -1,0 +1,7 @@
+# Magic Metronome example script: This is Dictation 14(1)(c)
+# from Hindemith's book "Elementary training for musicians".
+# 3/4 time.
+# This example has track 2 starting in the middle of track 1.
+# See the help pages for more details about starting tracks at different times.
+
+50 R6(b) {T2 [T2aa]aa,,a ,,,,a, ,[T2aa] a,a, ,,,,,,} R12(b)

@@ -1,0 +1,7 @@
+# Robert Muczynski, "Desperate Measures (Paganini Variations)"
+#Var 11, bars 1-4 on infinite loop
+
+{60 (baaa)}
+
+{60 S4
+(60 S8 90 R12(V30c))}

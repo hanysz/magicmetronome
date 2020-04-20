@@ -1,0 +1,3 @@
+# Magic Metronome example script: 4/4 time with bell
+
+60(baaa)

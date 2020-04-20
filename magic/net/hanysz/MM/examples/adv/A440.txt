@@ -1,0 +1,14 @@
+# Magic Metronome example script: A440
+#
+# Magic Metronome can go very fast!
+# We know that the A above middle C usually has a frequency of about 440 cycles per second.
+# What's that in cycles per minute?  440 times 60 makes 26400.
+# So let's see what 26400 ticks per minute sounds like:
+
+26400 R440(a)    # Play A440 for a second
+
+# Actually, we didn't need to figure out 440 times 60.
+# We could have asked Magic Metronome to do the arithmetic for us,
+# like this:
+
+440*60 R262(a)   # Play A440 for another second

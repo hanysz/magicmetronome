@@ -1,0 +1,6 @@
+# A number on its own represents a tempo in beats per minute.
+# In this example there are no spaces between the letters.
+# It doesn't matter whether or not you use spaces; the resulting sound
+# is the same.
+
+160 caaacaaacaaa

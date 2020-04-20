@@ -1,0 +1,6 @@
+# Magic Metronome example script: Rhythmic dictation with dotted rhythm
+#
+# This one is in 3/4.
+
+92 V200a[T4a,,aa,,a] V200 aa [T2,a] [T4V200a,,a]aa V200a,,
+

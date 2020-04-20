@@ -1,0 +1,202 @@
+\2 ="a,"
+\2b="b,"
+\2t="ba"
+\3 ="a,,"
+\3b="b,,"
+\3t="baa"
+\4 ="a,,,"
+\4b="b,,,"
+\4t="baaa"
+\5 ="a,,,,"
+\5b="b,,,,"
+\5t="baaaa"
+\6 ="a,,,,,"
+\6b="b,,,,,"
+\6t="baaaaa"
+\7 ="a,,,,,,"
+\7b="b,,,,,,"
+\7t="baaaaaa"
+\8 ="a,,,,,,,"
+\8b="b,,,,,,,"
+\8t="baaaaaaa"
+\9t="baaaaaaaa"
+\10t="baaaaaaaaa"
+\11t="baaaaaaaaaa"
+
+\24="ba"
+\34="baa"
+\44="baaa"
+\54="baaaa"
+
+96 # starting tempo: 96 crotchets per minute
+T1# practice tempo: e.g. change 1 to 0.8 for 80% speed
+
+aaaa # count in 4 beats
+\5t,,aaaa
+\8t \8t
+\8t,,aaaa
+[T108/96 # bar 5
+\8t \11t 
+
+
+M"7"
+\8t
+[T148/108# bar 8
+T4 # count semiquavers
+\7b \5 R3(T0.9 \4)
+] # bar 9: back to crotchet=108, counting in crotchets
+M"9"
+\6t  [ R5(T0.95 a) ]
+
+M"10"
+[T4 # bar 10: count semiquavers
+\5b \5 R4(\4)
+\5b \6 ]  # mid bar 11: back to crotchets
+R6(T0.95 a) T2/3 a
+
+] # bar 12: back to tempo I crotchet=96
+\4t \6t \6t \6t
+
+M"16"
+[T2 # bar 16: count quavers
+\2b T0.9 \3 T0.9 \3 T0.8 \4]
+
+T92/96 [T4 # bar 17: count semiquavers
+M"17"
+V20 a  V25 a V30 a V35 a V40 a V50 a# count in to bar 17
+\6b R5(\4)
+\7b \6 R5(\4)
+\7b \5 \2 \4 \4 R3(\4)
+] # bar 20: count crotchets
+\6t
+[T4 # bar 21: count semiquavers
+\7b \5 R6(\4)
+\4b \6 R4(\4)
+\3b \5 \6 \4 \8 # stretch the last crotchet
+\3b \5 \4 \6 \4 \4 \4
+
+M"25"
+
+\4b \4 \4 \8 \4
+] T100/92 # tempo 100 crotchets per minute
+[T4 # bar 26: count semiquavers
+\4b \4 \4 \2 \4 # bar 26 is 18 semiquavers long
+\4b \5 \5 \2 \4 # bar 27 is 20 semiquavers long
+\6b \4 \6 \2 \4 # bar 28 is 22 semiquavers long
+\6b \4 \6 \3 \4 # bar 29 is 23 semiquavers long
+T1/2 # bar 30: count quavers
+\2b \3 \2 \3
+\2b \2 \2 \2
+\2b \2 \2 \3
+\2b \3
+\2b \2 \2 \3
+
+M"35"
+\2b \2 \3
+\2b \3
+\3b \3
+\2b \3
+\2b \2 \3 \2 \3
+\2b \3
+\2b \3
+\2b \3 \2 \3
+\2b \3 \3
+\3b \3
+
+M"45"
+\2b \3 \2
+T 1/3 # bar 46: count dotted crotchets
+\3t \4t \3t R3(\4t) \3t
+
+
+M"53"
+T3 # count quavers
+\3b \3 \3 \2
+\2b \2 \2 \2
+\2b \2 \3
+\2b \2 \2
+\2b \3 \3
+T1/3 # bar 58:  count dotted crotchets
+\3t \4t \5t \4t
+T3 # bar 62: count quavers
+\3b \3 \3 \2
+\3b \3 \3
+\3b \2 \4 \2
+\3b \3
+
+
+M"66"
+\2b \2 \2 \3
+T1/3 # bar 67: count dotted crotchets
+R3(\4t) \3t \4t
+T3 # bar 72: count quavers
+[ T1.1 \3b T1.1 \2 T1.1 \3 T1.1 \2 T1.1 \2]
+T1/3 # bar 73: count dotted crotchets
+\3t \3t
+
+M"75"
+\3t
+T3 # bar 76: count quavers
+R5(b,a)
+] # bar 77: count crotchets
+\6t \5t \7t
+\5t \3t \4t
+
+
+M"83"
+[ T2/3 # count dotted crotchets
+\4t
+T1.15 # bar 84: piu movimento 
+R4(\2t) \3t R8(\2t)
+
+# bar 97
+\3t \3t
+
+M"99"
+T3 # count quavers
+\3b A(\3 \3 \3 \4 130)
+] # count crotchets
+
+# bar 100
+T92/100 [T4 # count semiquavers
+\6b \6 \6 \6
+\7b \7 \6 \6 \6
+\7b \7 \7 \6 \6 \6
+\6b \7 \7
+
+] # bar 104: count crotchets
+\6t \6t \7t \8t
+# bar 108
+\8t \5t
+
+
+M"110"
+\9t
+
+T108/92 \9t
+\9t
+M"113"
+\3t T2 \3 T0.5 \4t
+
+# bar 114
+\5t
+[ T2 # count quavers
+\3b \2 \2 \3
+
+
+M"116" \3b \3 \2
+] # count crotchets
+\10t
+T72/108 \8t
+[ T108/72 \8t \5t
+] # back to tempo of 72
+\7t
+
+# bar 121
+\3t [ T90/72 T4 # count semiquavers for the rest of this bar
+  \6 T0.9 \5 T0.9 \5 T0.8 \8
+
+# bar 122
+] # back to tempo of 72
+\8t \8t \5t
+

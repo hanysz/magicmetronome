@@ -1,0 +1,8 @@
+# Magic Metronome example script: 3/4 time
+#
+# The number 60 is the tempo in beats per minute.
+# The letters "a" and "b" represent two different sounds.
+# The parentheses tell Magic Metronome to keep repeating the pattern.
+# Try changing some parts of the script and see what difference it makes!
+
+60(b a a)

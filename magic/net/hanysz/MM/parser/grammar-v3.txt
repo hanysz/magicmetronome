@@ -1,0 +1,194 @@
+Grammar for The Magic Metronome:
+
+version 3, 26th January 2006
+
+( [ stuff ] is optional stuff (zero or one repetition),
+{ stuff } is zero or more repetitions,
+( stuff )+ is one or more repetitions,
+"stuff1 | stuff2" is "stuff1 or stuff2".)
+
+script = { event }
+
+event =
+	tempo
+	| accel-block
+	| repeat-block
+	| branch
+	| non-tempo-event
+
+accel-block = "A" "(" ["L"] [absolute-tempo] fixed-tempo-block
+		[absolute-or-relative-tempo] ")"
+
+fixed-tempo-block = { non-tempo-event }
+
+repeat-block = [ "R" positive-integer ] "(" script ")"
+
+branch = "{" script "}"
+
+non-tempo-event =
+	sound
+	| pause
+	| marker
+	| push-tempo
+	| global-setting
+	| end
+
+tempo =
+	absolute-tempo
+	| relative-tempo
+	| pop-tempo
+
+absolute-tempo = positive-real-number
+
+relative-tempo = "T" positive-real-number
+
+absolute-or-relative-tempo = absolute-tempo | relative-tempo
+
+pop-tempo = "]"
+
+sound = {sound-attribute} sound-spec
+
+sound-attribute = volume | pan
+
+volume = "V" positive-integer
+
+pan = "P" positive-integer
+
+sound-spec = lower-case-letter | "X" positive-integer
+
+pause = "," | ";" | "S" positive-integer
+
+global-setting =
+    "G" volume
+    | "G" pan
+    | "G" relative-tempo
+
+marker = "M" identifier
+
+push-tempo = "["
+
+end = "E"
+
+identifier = ( letter | digit )+
+
+lower-case-letter = "a" | "b" |  ... | "z"
+
+upper-case-letter = "A" | "B" | ... | "Z"
+
+letter = lower-case-letter | upper-case-letter
+
+positive-integer = {"0"}non-zero-digit{digit}
+
+integer = [sign](digit)+
+
+positive-real-number =
+	(digit)+["."(digit)+]
+	| positive-real-number times-or-divide positive-real-number
+
+digit = "0" | "1" | ... | "9"
+
+non-zero-digit = "1" | ... | "9"
+
+sign = "+" | "-"
+
+times-or-divide = "*" | "/"
+
+-----
+
+Notes:
+
+
+In a first version, the letters "a" through "d" will
+represent built-in sounds, and "e"-"z" will be silent.
+Future versions will have more (maybe 10) built-in sounds,
+and possibly a facility to make user-defined sounds.
+If more than 26 sounds are needed, "Xnumber" can represent
+extra sounds, e.g "X1", "X2907" or whatever.
+
+The event "E" is the end of the track; a track without
+end will play as an infinite loop.
+
+Volume is represented as an integer.  A "reference volume",
+say, 100, will play sound data with no scaling.  Very large
+numbers will of course produce clipping, but that's not illegal.
+Negative volumes are allowed: they will sound just like the
+corresponding positive volume, but with the phase reversed 
+(so a negative volume sound can cancel a positive volume in
+another track).
+
+Absolute tempos are ticks per minute; relative tempos
+are a proportional change from the previous absolute tempo--
+this can be specified as a floating point number or
+as an expression (e.g, 3/4).
+
+A global relative tempo doesn't actually change the tempo when
+it's specified; rather it serves as a multiplier for
+all subsequent absolute tempos in the same track.
+
+Tempo stack: symbols { and } will push and pop the current tempo.
+This is useful for tuples and nested polyrhythms; e.g
+{4/3 a a a a} will play 4 sounds in the time of 3 then return to the
+original tempo; {7/4 a b a b a {5/2 c c c c c}} does something strange!
+
+There's no need for the { } to nest nicely, or even balance; popping from an
+empty stack does nothing.  (Various bizarre effects could be made if desired.)
+
+There needs to be a default tempo if nothing is specified
+at the beginning!
+
+Short pauses: symbols , ; represent silence for 1 or 2 ticks.
+
+A repeat block with no number is an infinite loop. (Anything
+appearing after an infinite loop is of course redundant,
+but need not be treated as an error!)
+
+An accel-block of, say, <30 (stuff) 60> will start at a tempo
+of 30, do (stuff) while accelerating to a final tempo of 60.
+Acceleration is exponential by default, but "<L ..." specifies a linear accel.
+Starting tempo is optional (if missing, use current tempo); finishing tempo is
+also optional: if missing, an accel block will do nothing!
+
+Tempo changes within an accel-block are not allowed.
+
+A marker doesn't actually do anything, but it might be
+convenient to start playing in the middle of a track.
+
+Macros and comments are not built into the grammar; there will
+be a "preprocessing" phase before parsing.
+
+The intention of the "track list" is to allow polyphony;
+the first version of the software will just play the first
+track and ignore the rest, but a future version might do
+something crazy like play all the tracks simultaneously.
+
+Yes, there are macros, but there are no conditional statements,
+so it's not Turing-complete.  Is this a problem?  ;-)
+
+-----
+
+Examples:
+
+80 a	// play sound 'a' 80 times per minute
+
+83.27 a c b c	// play sounds a, c, b, c, a, c, b, c, a, c, b, c...
+		// (tempos need not be integral!)
+
+120 R30(a c b c) R30(a . d)	// 30 times first pattern, then 30 times 2nd, then repeat
+
+120 d d d d ( R30(a c b c) R30(a . d) )	// same as above, but with 'd's at start (not repeated)
+
+20< R25(a . d d) >200 (b)	// an accelerando, followed by an infinite loop
+
+20,200,100 (a . d d) (b)	// another way of writing exactly the same thing
+
+// here is a longer example:
+{\bar1 = 'a c c,'
+\bar2 = 'a b d . b'
+\bar3 = 'a , c'
+\phrase1 = 'R30(\bar1)'
+\phrase2 = 'R16(R5(\bar2) R3(\bar3))'
+\longpause = 'P12'
+\getready = 'd d d d'
+}
+80 \phrase1 80< \phrase2 >160 \bar1 \phrase2 \longpause 80 \getready \phrase1 E
+

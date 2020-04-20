@@ -1,0 +1,10 @@
+# Magic Metronome example script: Slow middle section
+#
+# Here is a "Minuet and trio" with the trio at a slower tempo than the minuet.
+# It's a very short minuet (only eight bars for each section)
+# but you can edit the script to change the length.
+
+126 R8(baa)
+95 R8(baa)
+126 R8(baa)
+

@@ -1,0 +1,4 @@
+# The tempo stack is called a "stack" because you can put lots of things on top of it.
+# This example uses four different tempos, and returns to three of them.
+
+95 baabaa [ 60 ccc [ 140 bababa [500 R15(a) ] baba ] cccc

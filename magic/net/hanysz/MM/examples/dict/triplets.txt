@@ -1,0 +1,4 @@
+# Magic Metronome example script: Rhythmic dictation with triplets
+
+100 V200aaa [T3 V200aaa]a, [T2 V200aaa,,a V200aa]a,
+

@@ -1,0 +1,8 @@
+# Magic Metronome example script: This is the rhythm of example I.69
+# from Jorgen Jersild's book "Advanced Rhythmic Studies: Polyrhythmic".
+
+96
+{R8 (c R3(V50c)) R9(V120c R2(V30c) V70c R2(V30c)),}
+{T3/2 S6 R6(b) R36(b) T8/9 S8 R8(b) R48(b) b}
+{T5/2 S20 R2(R21(a) S9)T2/3 S20 R2(R20(a) aS9)}
+

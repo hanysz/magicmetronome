@@ -1,0 +1,52 @@
+# Bach Italian Concerto, 3rd movement
+# Challenge: keep a constant tempo without the metronome going constantly!
+
+117
+#108
+
+# At each checkpoint, count in, play cymbal then beat for 2 bars (takes 4 bars total)
+\check = "[T2 aacaaab,]"
+
+# 4 bar count-in
+R8(a)
+T0.5 # 1 beat per bar
+
+# start
+c
+ S22
+    ## S10
+    #S3 c S3 c S2
+    #\check S8
+
+# bar 25 (check starts at bar 24, cymbal on bar 25)
+\check S16
+
+# bar 45
+\check S16
+
+# bar 65
+\check S16
+
+# bar 85
+\check S15
+
+# bar 104
+\check S15
+
+# bar 123
+\check S12
+
+# bar 139
+\check S7
+
+# bar 150
+\check S13
+
+# bar 167
+\check S16
+
+# bar 187
+\check S14
+
+# bar 205 -- rall before end
+[T2 aa]c

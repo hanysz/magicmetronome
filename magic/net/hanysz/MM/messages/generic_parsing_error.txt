@@ -1,0 +1,6 @@
+Sorry, your script could not be played because it contains an error of some sort.
+
+Future versions of Magic Metronome will aim to give more useful and informative 
+error messages. For now, however, you'll just have to work out what's wrong 
+with the script without any further help.  (Or of course it might not be the 
+script at all, it might be a bug in the software.)  Thanks for your patience.

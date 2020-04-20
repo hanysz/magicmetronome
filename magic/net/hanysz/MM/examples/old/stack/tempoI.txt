@@ -1,0 +1,11 @@
+# The "tempo" stack can store a tempo and recall it later.
+# Use "[" to push a tempo on to the stack, and "]" to recall it.
+
+70 aaaa
+[        # remember that the tempo was 70 beats per minute
+140 aaaa   # go faster for a while
+]aaaa          # go back to the first tempo
+
+# Unlike other kinds of brackets, the "[" and "]" symbols don't need to balance.
+# It's OK to store a tempo and never use it.
+# If you try to recall a tempo that you haven't stored, then the tempo won't change.

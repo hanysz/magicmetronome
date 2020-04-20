@@ -1,0 +1,12 @@
+# Magic Metronome example script: Rubato
+#
+# Here's something you might hear in a performance of a Chopin waltz or similar:
+# two short phrases and one long phrase,
+# with each phrase speeding up in the middle and slowing down at the end.
+# If you think the effect is too exaggerated (or not exaggerated enough!) then
+# you can adjust it by changing some of the numbers.
+
+(
+R2( A(100 baabaa 140) A(145 baabaa 100) )
+A(100 R5(baa) 140) A(150 R3(baa) 90)
+)

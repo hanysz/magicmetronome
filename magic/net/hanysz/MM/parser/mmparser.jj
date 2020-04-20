@@ -1,0 +1,543 @@
+/* Magic Metronome parser, first and trivial version */
+// updated 26th January 2007, still lots to do...
+
+options {
+    STATIC = false;
+}
+
+
+PARSER_BEGIN(MMScriptParser)
+    import net.hanysz.MM.events.*;
+    import java.util.*;
+    public class MMScriptParser implements net.hanysz.MM.MMConstants {
+
+
+	private static boolean insideAccelBlock = false;
+		// needed to detect infinite loops inside accel blocks...
+	private static boolean gotVolume = false;
+	private static float nextVolume;
+    }
+PARSER_END(MMScriptParser)
+
+
+// SKIP : { < WHITESPACE : " " | "\n" | "\r" | "\r\n" | "\t" > }
+SKIP : { " " | "\n" | "\r" | "\r\n" | "\t" }
+SKIP: { "#" : WithinComment }
+<WithinComment> SKIP :
+{ "\n" : DEFAULT }
+<WithinComment> MORE : { <~[]> }
+TOKEN : { < LOWER_CASE_LETTER : ["a"-"z"] > }
+TOKEN : { < RELATIVE_TEMPO : "T" > }
+TOKEN : { < REPEAT : "R" > }
+TOKEN : { < BLOCK_START : "(" > }
+TOKEN : { < BLOCK_END : ")" > }
+TOKEN : { < PAUSE : "S" > }
+TOKEN : { < BRANCH_START : "{" > }
+TOKEN : { < BRANCH_END : "}" > }
+TOKEN : { < ACCEL : "A" > }
+TOKEN : { < VOLUME : "V" > }
+TOKEN : { < PAN : "P" > }
+TOKEN : { < END : "E" > }
+TOKEN : { < LINEAR_ACCEL : "L" > }
+// TOKEN : { < MARKER : "M" (<WHITESPACE>)* "\"" (<LOWER_CASE_LETTER>)* "\"" > }
+
+TOKEN : { < MARKER : "M" > : WithinMarker }
+<WithinMarker> TOKEN :
+	{ <MARKERNAME : "\"" (["A"-"Z"] | ["a"-"z"] | ["0"-"9"] | "-" | "_" )+ "\"" > :
+	    DEFAULT }
+<WithinMarker> SKIP : { " " | "\n" | "\r" | "\r\n" | "\t" }
+
+TOKEN : { < PUSH_TEMPO : "[" > }
+TOKEN : { < POP_TEMPO : "]" > }
+TOKEN : { < SHORT_PAUSE : "," > }
+TOKEN : { < MEDIUM_PAUSE : ";" > }
+TOKEN : { < PLUS_SIGN : "+" > }
+TOKEN : { < MINUS_SIGN : "-" > }
+TOKEN : { < TIMES_SIGN : "*" > }
+TOKEN : { < DIVIDE_SIGN : "/" > }
+TOKEN : { < REAL_NUMBER : <DIGITS> | <DIGITS> "." <DIGITS> > }
+//TOKEN : { < WHOLE_NUMBER : <DIGITS> > }
+TOKEN : { < #DIGITS : (["0"-"9"])+ > }
+
+
+int Start(MMEventList eventList) :
+{int length;}
+{
+    length = script(eventList)
+    <EOF>
+    {
+	//System.out.println(eventList);
+	return length;
+    }
+}
+
+
+int script(MMEventList eventList) :
+{
+    int length=0, sublength = 0;}
+{
+    (
+	tempo(eventList)
+    |
+	sublength = accelBlock(eventList)
+	{length+=sublength;}
+    |
+	sublength = repeatBlock(eventList) // weird javacc warning?
+	{length+=sublength;}
+    |
+	branch(eventList)
+    |
+	sublength = nonTempoEvent(eventList)
+	{length+=sublength;}
+    )*
+    {return length;}
+}
+
+
+void tempo(MMEventList eventList) :
+{}
+{
+    (
+	absoluteTempo(eventList)
+    |
+	relativeTempo(eventList)
+    |
+	popTempo(eventList)
+    )
+}
+
+
+void absoluteTempo(MMEventList eventList) :
+{
+    float tempo;
+}
+{
+    (
+	tempo = realNumber()
+	{
+	    if (tempo>0) {
+		eventList.add(new AbsoluteTempoEvent(tempo));
+	    } else {
+		throw new ParseException("Trying to use zero or a negative number "
+		+"as a tempo.");
+	    }
+	}
+    )
+}
+
+
+void relativeTempo(MMEventList eventList) :
+{
+    float tempo;
+}
+{
+    (
+	<RELATIVE_TEMPO>
+	tempo = realNumber()
+	{
+	    if (tempo>0) {
+		eventList.add(new RelativeTempoEvent(tempo));
+	    } else {
+		throw new ParseException("Relative tempo change T was followed by "
+		+"zero or a negative number.");
+	    }
+	}
+    )
+}
+
+
+void popTempo(MMEventList eventList) :
+{}
+{
+    (
+	<POP_TEMPO>
+    )
+    {eventList.add(new PopTempoEvent());}
+}
+
+
+int accelBlock(MMEventList eventList) :
+{
+    insideAccelBlock = true;
+
+    int length = 0;
+    AccelStartEvent accelEvent = new AccelStartEvent();
+    MMEvent accelStartTempo, accelEndTempo;
+}
+{
+    (
+	<ACCEL>
+	{eventList.add(accelEvent);}
+	<BLOCK_START>
+	(
+	    <LINEAR_ACCEL>
+	    {accelEvent.setMode(LINEAR_ACCEL_MODE);}
+	)?
+	(
+	    accelStartTempo = getAccelTempo()
+	    {accelEvent.setStartTempo(accelStartTempo);}
+	)?
+		// the above produces a warning that I don't understand
+	length = fixedTempoEventList(eventList)
+	(
+	    accelEndTempo = getAccelTempo()
+	    {accelEvent.setEndTempo(accelEndTempo);}
+	)?
+	endAccel(eventList)
+    )
+    {
+	insideAccelBlock = false; // nb this will fail if the syntax ever changes
+	// to allow nested accel blocks!
+	accelEvent.setLength(length);
+	return length;
+    }
+}
+
+
+MMEvent getAccelTempo() :
+{
+    float tempo;
+    int tempoType=ABSOLUTE_TEMPO_EVENT;
+}
+{
+    (
+	<RELATIVE_TEMPO>
+	{tempoType=RELATIVE_TEMPO_EVENT;}
+    )?
+    tempo = realNumber()
+    {return ((tempoType==ABSOLUTE_TEMPO_EVENT) ?
+		new AbsoluteTempoEvent(tempo) :
+		new RelativeTempoEvent(tempo));}
+}
+
+
+
+void endAccel(MMEventList eventList) :
+{}
+{
+    (
+	<BLOCK_END>
+    )
+    {eventList.add(new AccelEndEvent());}
+}
+
+
+int fixedTempoEventList(MMEventList eventList) :
+{int length=0, sublength=0;}
+{
+    (
+    	(
+	    sublength = nonTempoEvent(eventList)
+	    {length+=sublength;}
+	)*
+    )
+    {return length;}
+}
+
+
+int repeatBlock(MMEventList eventList) :
+{int length=0, numberOfRepeats;}
+{
+    (
+	numberOfRepeats = repeatCount(eventList) // adds RepeatStartEvent
+	// <BLOCK_START> is inside repeatCount
+	length = script(eventList)
+	<BLOCK_END>
+    )
+    {
+	if ((numberOfRepeats == INFINITE_REPEAT) && (length==0)) {
+	    throw new ParseException("Trying to repeat an empty block "
+	    +"an infinite number of times.");
+	}
+	eventList.add(new RepeatEndEvent());
+	return length*numberOfRepeats;
+    }
+}
+
+
+int repeatCount(MMEventList eventList) :
+{int numRepeats=0;}
+{
+    (
+	numRepeats = finiteRepeatCount(eventList)
+	{return numRepeats;}
+    |
+	infiniteRepeatCount(eventList)
+	{return 0;}
+    )
+}
+
+
+int finiteRepeatCount(MMEventList eventList) :
+{
+    int numberOfRepeats = INFINITE_REPEAT;
+}
+{
+    (
+	<REPEAT>
+	(numberOfRepeats = positiveInteger())?
+	<BLOCK_START>
+    )
+    {
+	eventList.add(new RepeatStartEvent(numberOfRepeats));
+	return numberOfRepeats;
+    }
+}
+
+
+void infiniteRepeatCount(MMEventList eventList) :
+{
+    int numberOfRepeats = INFINITE_REPEAT;
+}
+{
+    (
+	<BLOCK_START>
+    )
+    {
+	if (insideAccelBlock) {
+	    throw new ParseException("Infinite loop inside accelerando block.");
+	}
+	eventList.add(new RepeatStartEvent(INFINITE_REPEAT));
+    }
+}
+
+
+void branch(MMEventList eventList) :
+{
+    MMEventList branchEventList = new MMEventList();
+}
+{
+    (
+	<BRANCH_START>
+	script(branchEventList)
+	<BRANCH_END>
+    )
+    {eventList.add(new BranchEvent(branchEventList));}
+}
+
+
+int nonTempoEvent(MMEventList eventList) :
+{int length=0;}
+{
+    (
+	sound(eventList)
+	    {length = 1;}
+    |
+	length = pause(eventList)
+    |
+	volume(eventList)
+    |
+	marker(eventList)
+    |
+	pushTempo(eventList)
+    |
+	end(eventList)
+    |
+	length = fixedTempoRepeatBlock(eventList)
+    )
+    {return length;}
+}
+
+
+void sound(MMEventList eventList) :
+{
+    Token t;
+    char firstChar;
+    int value;
+}
+{
+    (
+	t = <LOWER_CASE_LETTER>
+	{
+	     firstChar = t.image.charAt(0);
+	     value = (int)firstChar - (int)'a';
+	     eventList.add(new SoundEvent(value));
+	}
+    )
+}
+
+
+int pause(MMEventList eventList) :
+{int length;}
+{
+    (
+	shortPause(eventList)
+	{length=1;}
+    |
+	mediumPause(eventList)
+	{length=2;}
+    |
+	length=longPause(eventList)
+    )
+    {return length;}
+}
+
+
+void volume(MMEventList eventList) :
+{float theVolume;}
+{
+    (
+	<VOLUME>
+	theVolume = realNumber()
+    )
+    {eventList.add(new VolumeEvent(theVolume));}
+}
+
+
+void shortPause(MMEventList eventList) :
+{}
+{
+    <SHORT_PAUSE>
+    {eventList.add(new SoundEvent(SILENT_SOUND));}
+}
+
+
+void mediumPause(MMEventList eventList) :
+{}
+{
+    <MEDIUM_PAUSE>
+    {
+    	eventList.add(new SoundEvent(SILENT_SOUND));
+    	eventList.add(new SoundEvent(SILENT_SOUND));
+    }
+}
+
+
+int longPause(MMEventList eventList) :
+{
+    int numberOfTicks;
+}
+{
+    <PAUSE>
+    numberOfTicks = positiveInteger()
+    {
+	for (int i = 0; i < numberOfTicks; i++) {
+	    eventList.add(new SoundEvent(SILENT_SOUND));
+	}
+	return numberOfTicks;
+    }
+}
+
+
+void marker(MMEventList eventList) :
+{
+    Token t;
+    String markerName;
+    int startOfName, endOfName;
+}
+{
+    <MARKER>
+    t = <MARKERNAME>
+    {
+	startOfName = t.image.indexOf('"')+1;
+	endOfName = t.image.lastIndexOf('"');
+	markerName = t.image.substring(startOfName, endOfName);
+	eventList.add(new MarkerEvent(markerName));
+    }
+}
+
+
+void pushTempo(MMEventList eventList) :
+{}
+{
+    (
+	<PUSH_TEMPO>
+    )
+    {eventList.add(new PushTempoEvent());}
+}
+
+
+void end(MMEventList eventList) :
+{}
+{
+    (
+	<END>
+    )
+    {eventList.add(new EndOfTrackEvent());}
+}
+
+
+int fixedTempoRepeatBlock(MMEventList eventList) :
+{int length=0, sublength=0, numRepeats;}
+{
+    (
+	numRepeats = repeatCount(eventList) // adds RepeatStartEvent
+	// <BLOCK_START>  -- included in repeatCount
+	(
+	    sublength = nonTempoEvent(eventList)
+	    {length+=sublength;}
+	)*
+	<BLOCK_END>
+    )
+    {
+	eventList.add(new RepeatEndEvent());
+	return length*numRepeats;
+    }
+}
+
+
+float factor() throws NumberFormatException :
+{
+    Token t;
+    float answer, factor;
+}
+{
+    t = <REAL_NUMBER>
+    { answer= Float.parseFloat(t.image); }
+    (
+	<TIMES_SIGN>
+	factor = realNumber()
+	{ answer *= factor;}
+    )?
+    (
+	<DIVIDE_SIGN>
+	factor = realNumber()
+	{ if (factor!=0) { answer /= factor;}}
+    )?
+    { return answer;}
+}
+
+
+float realNumber() throws NumberFormatException :
+{
+    float total, nextFactor;
+}
+{
+    total = factor()
+    (
+	<PLUS_SIGN>
+	nextFactor = realNumber()
+	{ total += nextFactor;}
+    )?
+    (
+	<MINUS_SIGN>
+	nextFactor = realNumber()
+	{ total -= nextFactor;}
+    )?
+    { return total;}
+}
+
+int positiveInteger() throws NumberFormatException :
+{
+    Token t;
+    Float somenumber;
+    int answer;
+}
+{
+    somenumber = realNumber()
+    {
+	answer = Math.round(somenumber);
+	if (answer>0) {
+	    return answer;
+	} else {
+	    throw new ParseException("Got zero or a negative number "
+	    +"where a positive number was expected.");
+	}
+    }
+}
+
+void parsingError(String message) :
+{}
+{
+{System.out.println("Parsing error: "+message); System.exit(1);}
+}

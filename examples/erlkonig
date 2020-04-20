@@ -1,0 +1,76 @@
+# Liszt's transcription of Schubert's Erlkonig
+
+\comma4="[T4 ,]"
+\comma6="[T6 ,]"
+
+132
+# four bars count in
+R2(baaa)
+
+# beginning
+caaa R21(aaaa)
+
+# bar 23
+M"23" R2(aaaa)
+
+# bar 25
+R3(\comma4 R8(a))
+# bar 31
+aa 110 aa 132
+
+# bar 32
+R17(aaaa)
+
+#bar 49
+M"49"
+R3(aaaa)
+126 R3(aaaa) 120 aaaa 116 R2(aaaa)
+
+#bar 58
+120 R11(aaaa)
+
+#bar 69
+M"69"
+aaaa \comma6 aaaa \comma6 aaaa
+
+#bar 72
+132 R7(aaaa)
+
+# bar 79
+R2(aaaa)
+116 R6(aaaa)
+# bar 87
+123 R7(aaaa)
+
+# bar 94
+M"94"
+R2(aaaa) aa 132 aa
+
+# bar 97
+R9(aaaa) \comma6 R2(aaaa)
+
+# bar 108
+\comma6 M"108" aaaa \comma6 R3(aaaa)
+\comma4 120 aa 126 aa
+132 R3(aaaa) 126 aa 120 aa
+
+# bar 117
+115 R3(aaaa)
+A(123 R3(aaaa) 132)
+
+# bar 123
+R2(aaaa)
+A(134 R4(aaaa) 150)
+
+# bar 129
+M"129"
+aaaa 155 aaaa
+
+# bar 131
+85 ca
+R10(aa)
+#bar 142
+80 a 72 a
+144 aaaa 132 aaaa
+A(128 aaaa 80)
+a

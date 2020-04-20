@@ -1,0 +1,12 @@
+# Remember that a tempo change in a repeated block will happen
+# over again on every repeat.
+# If you use relative instead of absolute tempo changes,
+# then you can make something get faster and faster...
+
+60 R5(T1.3 baaa)
+30 c
+
+# ... or slower and slower
+
+200 R5(T0.7 baaa)
+d

@@ -1,0 +1,3 @@
+# Magic Metronome example script: 5/8 time as 3+2
+
+140(baaba)

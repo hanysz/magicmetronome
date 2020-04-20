@@ -1,0 +1,9 @@
+# Magic Metronome example script: This is the rhythm of example I.19
+# from Jorgen Jersild's book "Advanced Rhythmic Studies: Polyrhythmic".
+
+92*2
+{  [T3/4aaa]a ,aaaa a[T2aa]a,, [T3/4aaa], ,aaaa aS4
+   ,aaaa [T3/4aaa]a ,,aaa aS4
+  [T3/4aaa]a S8aa aS5}
+{R14(b,V50b,V50b) b}
+

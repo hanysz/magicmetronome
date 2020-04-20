@@ -1,0 +1,6 @@
+# Magic Metronome example script: Nested tuplet
+#
+# See if you can figure out what this does!
+# For details, see the help page "The tempo stack".
+
+60 aaa [T7 aa [T2/3 aaaaa]aa] aa

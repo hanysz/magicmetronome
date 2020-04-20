@@ -1,0 +1,7 @@
+# Magic Metronome example script: eight bars of 4/4 time
+#
+# The letter "R" introduces a repeat counter.
+# This example will play the pattern 8 times, then stop.
+# Of course you can change the 8 to another number if you like.
+
+60 R8(baaa)

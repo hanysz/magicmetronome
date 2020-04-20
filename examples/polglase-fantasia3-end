@@ -1,0 +1,18 @@
+# bar 198 rhythmic modulation
+# with two bar count in
+#100 R14(ba)
+#72 (ba)
+
+
+
+# starting at bar 237 with one bar count in
+72 baa # intro
+
+72 baa R7(ba)
+80 baa R7(ba)
+88 baa R4(ba) T2 ba,a,
+100 baa ba ba
+102 ba
+104 ba 106 a
+108 R5(baa) (ba)
+

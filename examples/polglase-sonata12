@@ -1,0 +1,39 @@
+136 # practice tempo
+152 # crotchet=152
+T2 # count quavers
+\38="b,,"
+\24="b,a,"
+\48="b,,,"
+\58="b,,,,"
+\34="b,a,a,"
+\68="b,,a,,"
+\78= "b,,a,a,"
+\78a="b,,,a,,"
+\7=  "b,,,,,,"
+\88="b,,a,,a,"
+
+\countin="\78\78"
+\intro="R4(\78)\7"
+\firstrepeat="R49(\78)"
+
+\secondrepeat="R16(\78)\68\68 R4(\88) R10(\48) \78a R12(\78) \78a"
+
+\countin
+\intro
+M"a"
+\firstrepeat
+M"b"
+\48 R5(\78)
+M"c"
+\firstrepeat
+M"d"
+\78\78a\7 S5 [T0.6 a,a,b,,,a,,]
+M"e"
+\secondrepeat
+M"f"
+\78a\78\7 S5 [T0.5 a,a,b,,,,,b,,b,]
+M"g"
+\secondrepeat
+M"h"
+R9(\78a) R3(\7) R4(\78) R8(\7) R3(\78) R3(\68) \78 \78a
+

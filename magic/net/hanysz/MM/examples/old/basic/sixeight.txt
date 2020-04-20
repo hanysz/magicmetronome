@@ -1,0 +1,3 @@
+# One bar of slow 6/8 time, with the main beats accented.
+
+c a a b a a

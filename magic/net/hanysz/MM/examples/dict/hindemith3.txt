@@ -1,0 +1,7 @@
+# Magic Metronome example script: This is Dictation 10(2)(b)
+# from Hindemith's book "Elementary training for musicians".
+# 2/4 time.
+
+50
+{bb,b,b,,}
+{T4 ,,a,,,aa aaa,,,aa a,aa,,a, aa,aa,,,}

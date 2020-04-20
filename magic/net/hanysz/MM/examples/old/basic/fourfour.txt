@@ -1,0 +1,4 @@
+# One bar of 4/4 time, with a bell on the first beat.
+# Try editing the script to make some different rhythmic patterns.
+
+b a a a

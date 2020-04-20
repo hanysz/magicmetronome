@@ -1,0 +1,5 @@
+# Magic Metronome example script: Changing time signatures
+#
+# Here is four bars of 3/4 time alternating with four bars of 4/4 time.
+
+132 ( R4(baa) R4(baaa) )

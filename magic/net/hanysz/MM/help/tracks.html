@@ -1,0 +1,35 @@
+<table align="center" width="100%">
+<td align="left"><a href="temporatio.html">Previous: Tempo ratios</a></td>
+<td align="center"><a href="contents.html">Contents</a></td>
+<td align="right"><a href="volume.html">Next: Changing the volume</a></td>
+</table>
+<hr>
+<br>
+<h2>Using multiple tracks</h2>
+Magic Metronome can play several tracks simultaneously.
+If you want all the tracks to start at the same time,
+then you just enclose each track in braces&mdash;"{" and "}".
+For example, here is the code to start two metronomes in two different tempos
+at the same time:
+<p>
+<code>
+{ 60 (a) } { 90 (b) }
+</code>
+<p>
+If you want tracks to start at different times then you need to be
+a little bit careful.
+This next example will start a second metronome three beats after the first one:
+<p>
+<code>60 a a a {90(b)} (a)</code>
+<p>
+Notice that the "b" track is in the <em>middle</em> of the "a" track.
+The rules for multiple tracks are:
+<ul>
+    <li>each "{" will launch a new track;</li>
+    <li>every "{" must have a matching "}" some time later;</li>
+    <li>the new track starts simultaneously with the tick that
+    comes <em>after</em> its "}".</li>
+</ul>
+Like parentheses for repeats,
+tracks can be nested: if you want to do something complicated,
+you can have a new track starting inside another track.
