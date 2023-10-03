@@ -1,3 +1,5 @@
+*As of October 2023, I am no longer updating this repository.  Check https://hanysz.net/software.html to see if there are any more recent versions.*
+
 # Magic Metronome and Polymetronome
 
 Magic Metronome is a programmable software metronome.  It will play a sequence of sounds according to a script. As well as doing the things you'd expect from a normal metronome, Magic Metronome can also play scripts with changing time signatures, rests and pauses, sudden or gradual tempo changes, and even polyphonic scripts with two or more tracks simultaneously.
